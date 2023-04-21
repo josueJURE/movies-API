@@ -11,3 +11,10 @@ nav {
     border-bottom: 1px solid #fff;
     background-color: #fff;
 }
+
+ul {
+    display: flex;
+    justify-content: start;
+    height: 100%;
+    width: 100%;
+}
