@@ -21,4 +21,5 @@ ul {
 
 ul {
     list-style-type: none;
+    gap: 50px
 }
