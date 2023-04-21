@@ -1,7 +1,7 @@
 .mainContainer {
   height: 100vh;
   width: 100%;
-  background-color: grey
+  background-color: grey;
 }
 
 nav {
@@ -9,11 +9,10 @@ nav {
   height: 30px;
   border: none;
   border-bottom: 1px solid #fff;
-  background-color: black
+  background-color: black;
 }
 
 ul {
-
   display: flex;
   justify-content: start;
   height: 100%;
@@ -24,7 +23,7 @@ ul {
 }
 
 li {
-    color: #fff;
+  color: #fff;
 }
 
 li:nth-child(4) {
@@ -38,24 +37,25 @@ li:nth-child(5) {
 }
 
 ul li {
-    position: relative;
-  }
-  
-  ul li::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; /* Adjust this value to control the distance of the line from the bottom of the li element */
-    left: 0;
-    right: 0;
-    height: 5px; /* Adjust this value to control the thickness of the line */
-    background-color: #fff; /* Adjust this value to control the color of the line */
-    opacity: 0; /* Initially hide the line */
-    transition: opacity 0.3s ease; /* Add a transition effect for smooth appearance */
-  }
-  
-  ul li:hover::after {
-    opacity: 1; /* Show the line when hovering over the li element */
-  }
-  
+  position: relative;
+}
+
+ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Adjust this value to control the distance of the line from the bottom of the li element */
+  left: 0;
+  right: 0;
+  height: 5px; /* Adjust this value to control the thickness of the line */
+  background-color: #fff; /* Adjust this value to control the color of the line */
+  opacity: 0; /* Initially hide the line */
+  transition: opacity 0.3s ease-in; /* Add a transition effect for smooth appearance */
+}
+
+ul li:hover::after {
+  opacity: 1; /* Show the line when hovering over the li element */
+}
+
+
 
 
