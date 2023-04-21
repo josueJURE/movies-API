@@ -1,6 +1,7 @@
 .mainContainer {
+  position: relative;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-color: grey;
 }
 
@@ -22,6 +23,15 @@ ul {
   position: relative;
 }
 
+.userInfo {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-top: 0;
+ 
+}
+
 li {
   color: #fff;
 }
@@ -39,9 +49,9 @@ nav ul div {
   color: #fff;
 }
 
-/* ul li {
+ul li {
   position: relative;
-} */
+}
 
 ul li::after {
   content: "";
@@ -49,7 +59,7 @@ ul li::after {
   bottom: -2px; /* Adjust this value to control the distance of the line from the bottom of the li element */
   left: 0;
   right: 0;
-  height: 10px; /* Adjust this value to control the thickness of the line */
+  height: 3.5px; /* Adjust this value to control the thickness of the line */
   background-color: #fff; /* Adjust this value to control the color of the line */
   opacity: 0; /* Initially hide the line */
   transition: opacity 0.3s ease-in; /* Add a transition effect for smooth appearance */
