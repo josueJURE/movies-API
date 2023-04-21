@@ -26,19 +26,22 @@ li {
   color: #fff;
 }
 
-li:nth-child(4) {
-  position: absolute;
-  margin-left: 1200px;
-}
-
-li:nth-child(5) {
-  position: absolute;
+nav ul div:nth-last-child(2) {
   margin-left: 1250px;
 }
 
-ul li {
-  position: relative;
+nav ul div:nth-last-child(1) {
+  margin-left: 1200px;
 }
+
+nav ul div {
+  position: absolute;
+  color: #fff;
+}
+
+/* ul li {
+  position: relative;
+} */
 
 ul li::after {
   content: "";
@@ -46,7 +49,7 @@ ul li::after {
   bottom: -2px; /* Adjust this value to control the distance of the line from the bottom of the li element */
   left: 0;
   right: 0;
-  height: 5px; /* Adjust this value to control the thickness of the line */
+  height: 10px; /* Adjust this value to control the thickness of the line */
   background-color: #fff; /* Adjust this value to control the color of the line */
   opacity: 0; /* Initially hide the line */
   transition: opacity 0.3s ease-in; /* Add a transition effect for smooth appearance */
@@ -55,7 +58,3 @@ ul li::after {
 ul li:hover::after {
   opacity: 1; /* Show the line when hovering over the li element */
 }
-
-
-
-
