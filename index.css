@@ -51,6 +51,8 @@ nav ul div {
 
 ul li {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 ul li::after {
