@@ -102,6 +102,7 @@ li {
 }
 
 .carousel {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   position: absolute;
@@ -131,6 +132,13 @@ li {
   height: 150px;
     width: 300px;
   border: 1px black solid;
+}
+
+.fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  left: 102%;
+  transform: translate(-50%, -50%);
 }
 
 

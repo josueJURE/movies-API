@@ -1,3 +1,7 @@
+const x  = document.querySelector(".fa-chevron-right")
+const y = document.querySelector(".fa-chevron-left")
+console.log({iconParentRight: x.parentElement, iconParentLet: y.parentElement})
+
 // const mainContainer = document.querySelector('.mainContainer');
 // const ul = document.querySelector("ul");
 // console.log(ul.children)
