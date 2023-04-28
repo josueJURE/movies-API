@@ -112,7 +112,22 @@ li {
   height: 250px;
   border: 1px black solid;
   border-radius: 10px;
+  
 }
+
+.directors {
+  margin-top: 550px;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 250px;
+  border: 1px black solid;
+  border-radius: 10px;
+ 
+
+}
+
+
 
 .smallDots {
   display: flex;
