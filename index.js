@@ -1,7 +1,7 @@
-const mainContainer = document.querySelector('.mainContainer');
-const ul = document.querySelector("ul");
-console.log(ul.children)
-console.log(mainContainer)
+// const mainContainer = document.querySelector('.mainContainer');
+// const ul = document.querySelector("ul");
+// console.log(ul.children)
+// console.log(mainContainer)
 
 
 // const options = {
