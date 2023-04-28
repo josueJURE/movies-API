@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  /* background-color: aliceblue; */
+}
+
 body {
   background-color: grey;
 }
@@ -95,10 +104,11 @@ ul li:hover::after {
 
 .carousel {
   position: absolute;
-  margin-top: 50%;
+  margin-top: 250px;
   margin-left: 50%;
-  transform: translateX(-50%, -50%);
+  transform: translate(-50%, -50%);
   width: 90%;
   height: 250px;
   border: 1px black solid;
+  border-radius: 10px;
 }
