@@ -109,7 +109,7 @@ li {
   margin-top: 250px;
   margin-left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 20%;
   height: 250px;
   border: 1px black solid;
   border-radius: 10px;
@@ -160,4 +160,19 @@ li {
   margin-left: auto;
   margin-top: 230px;
   margin-right: 10px;
+}
+
+/* img {
+  height: 100%;
+  width: 100%;
+  
+} */
+
+img {
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
 }
