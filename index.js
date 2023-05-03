@@ -19,7 +19,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
 
-    console.log(director, genre, rating);
+    console.log(director, genre, rating, title);
 
     console.log(title);
     let counting = 0;
@@ -33,7 +33,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     response[counting].director;
     response[counting].genre;
     response[counting].rating;
-    response[counting].tile;
+    response[counting].title;
     response[counting].description;
 
     chevronRight.addEventListener("click", swipeRight);
@@ -49,7 +49,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       director.innerHTML = response[counting].director;
       genre.innerHTML = response[counting].genre;
       rating.innerHTML = response[counting].rating;
-      title.innerHTML = response[counting].tile;
+      title.innerHTML = response[counting].title;
       description.innerHTML = response[counting].description;
       console.log(counting);
     }
@@ -63,7 +63,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       director.innerHTML = response[counting].director;
       genre.innerHTML = response[counting].genre;
       rating.innerHTML = response[counting].rating;
-      title.innerHTML = response[counting].tile;
+      title.innerHTML = response[counting].title;
       description.innerHTML = response[counting].description;
     }
   })
