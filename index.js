@@ -14,8 +14,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const chevronLeft = document.querySelector(".fa-chevron-left");
     const img = document.querySelector(".carousel img");
     let counting = 0;
+
+    let top10 = response.slice(0, 10).map((item) => item.image);
+    console.log({ API: response, topTen: top10 });
+
     img.src = response[counting].image;
-    console.log("josue");
 
     chevronRight.addEventListener("click", swipeRight);
     chevronLeft.addEventListener("click", swipeLeft);
@@ -24,11 +27,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       console.log("hello world");
     }
 
- 
-
     function swipeRight() {
       counting++;
-      console.log(counting)
+      if (counting > 99) {
+        counting = 0;
+      }
       img.src = response[counting].image;
     }
   })
