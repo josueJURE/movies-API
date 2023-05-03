@@ -46,9 +46,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
       // console.log(director, genre, rating)
       img.src = response[counting].image;
-      director.innerHTML = response[counting].director;
-      genre.innerHTML = response[counting].genre;
-      rating.innerHTML = response[counting].rating;
+      director.innerHTML = `Director: ${response[counting].director}` ;
+      genre.innerHTML = `Genre: ${response[counting].genre}`;
+      rating.innerHTML = `Rating ${response[counting].rating}`;
       title.innerHTML = response[counting].title;
       description.innerHTML = response[counting].description;
       console.log(counting);
@@ -60,11 +60,12 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         counting = 0;
       }
       img.src = response[counting].image;
-      director.innerHTML = response[counting].director;
-      genre.innerHTML = response[counting].genre;
-      rating.innerHTML = response[counting].rating;
+      director.innerHTML = `Director: ${response[counting].director}` ;
+      genre.innerHTML = `Genre: ${response[counting].genre}`;
+      rating.innerHTML = `Rating ${response[counting].rating}`;
       title.innerHTML = response[counting].title;
       description.innerHTML = response[counting].description;
+      console.log(counting);
     }
   })
 

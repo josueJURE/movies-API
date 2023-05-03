@@ -118,7 +118,8 @@ li {
 
 .movie li {
   display: flex;
-  justify-content:center;
+  padding-left: 20px;
+  /* justify-content: center; */
 }
 
 .movie > * {
