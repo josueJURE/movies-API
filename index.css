@@ -103,23 +103,39 @@ li {
 
 .carousel {
   position: relative;
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  margin-top: 250px;
-  margin-left: 50%;
-  transform: translate(-50%, -85%);
-  width: 20%;
-  height: 250px;
+  height: 550px;
   border: 1px black solid;
   border-radius: 10px;
+  
+}
+
+.movie {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  column-gap: 50px;
+}
+
+.movie li {
+  display: flex;
+  justify-content:center;
+}
+
+.movie > * {
+  width: 33.3333%;
+
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .directors {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 550px;
+  margin-top: 175px;
   margin-left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
@@ -159,11 +175,11 @@ li {
   margin-right: 10px;
 }
 
-/* img {
+img {
   height: 100%;
   width: 100%;
   
-} */
+}
 
 img {
   object-fit: cover;
