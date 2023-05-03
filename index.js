@@ -24,16 +24,27 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     chevronLeft.addEventListener("click", swipeLeft);
 
     function swipeLeft() {
-      console.log("hello world");
+      counting--
+      if(counting < 0) {
+        counting = 99;
+      }
+      img.src = response[counting].image;
+      console.log(counting)
     }
 
     function swipeRight() {
       counting++;
       if (counting > 99) {
         counting = 0;
+
       }
       img.src = response[counting].image;
+      console.log(counting)
     }
   })
+
+
+
+
 
   .catch((err) => console.error(err));
