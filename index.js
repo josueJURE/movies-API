@@ -1,10 +1,12 @@
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": "868db2c1eamshd290e20c8dc8261p1627dejsnf52bb1929fb7",
-//     "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
-//   },
-// };
+
+
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "868db2c1eamshd290e20c8dc8261p1627dejsnf52bb1929fb7",
+    "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
+  },
+};
 
 fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => response.json())
@@ -18,17 +20,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
+    const trailerSection = document.querySelector(".trailerSection source");
 
-    console.log(director, genre, rating, title);
+    // trailerSection.addEventListener("click", watchTrailer);
 
-    console.log(title);
+    console.log(trailerSection);
+
     let counting = 0;
 
-    let top10 = response.slice(0, 10).map((item) => item.image);
-    console.log({ API: response, topTen: top10 });
-
-
     img.src = response[counting].image;
+    trailerSection.src = response[counting].trailer;
     response[counting].image;
     response[counting].director;
     response[counting].genre;
@@ -46,7 +47,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
       // console.log(director, genre, rating)
       img.src = response[counting].image;
-      director.innerHTML = `Director: ${response[counting].director}` ;
+      director.innerHTML = `Director: ${response[counting].director}`;
       genre.innerHTML = `Genre: ${response[counting].genre}`;
       rating.innerHTML = `Rating ${response[counting].rating}`;
       title.innerHTML = response[counting].title;
@@ -60,7 +61,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         counting = 0;
       }
       img.src = response[counting].image;
-      director.innerHTML = `Director: ${response[counting].director}` ;
+      director.innerHTML = `Director: ${response[counting].director}`;
       genre.innerHTML = `Genre: ${response[counting].genre}`;
       rating.innerHTML = `Rating ${response[counting].rating}`;
       title.innerHTML = response[counting].title;
@@ -69,4 +70,4 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
   })
 
-  .catch((err) => console.error(err));
+

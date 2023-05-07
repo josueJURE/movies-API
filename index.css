@@ -4,6 +4,7 @@
   box-sizing: border-box;
   outline: none;
   font-family: "Open Sans", sans-serif;
+  color: #fff;
   /* background-color: aliceblue; */
 }
 
@@ -55,7 +56,7 @@ ul {
 }
 
 li {
-  color: #fff;
+ 
 }
 
 .homeSearchWatcList li {
@@ -106,7 +107,6 @@ li {
   height: 550px;
   border: 1px black solid;
   border-radius: 10px;
-  
 }
 
 .movie {
@@ -124,7 +124,6 @@ li {
 
 .movie > * {
   width: 33.3333%;
-
 }
 
 .movieInfo {
@@ -138,7 +137,7 @@ li {
   align-items: center;
   margin-top: 175px;
   margin-left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -10%);
   width: 90%;
   height: 250px;
   border-radius: 10px;
@@ -176,11 +175,7 @@ li {
   margin-right: 10px;
 }
 
-img {
-  height: 100%;
-  width: 100%;
-  
-}
+
 
 img {
   object-fit: cover;
@@ -188,6 +183,11 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  border: 1px black solid;
+}
+
+img:hover {
+  border-width: 10px;
 }
 
 .title {
@@ -200,12 +200,16 @@ img {
   padding-right: 20px;
 }
 
-
-.trailerButton{
+.trailerButton {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid;
   border-radius: 10px;
   margin-top: 10px;
+}
+
+.movieInfo,
+.trailerSection {
+  height: 50%;
 }
