@@ -1,0 +1,16 @@
+{
+  "name": "moviesapi",
+  "version": "1.0.0",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josueJURE/movies-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/josueJURE/movies-API/issues"
+  },
+  "homepage": "https://github.com/josueJURE/movies-API#readme",
+  "dependencies": {
+    "sweetalert2": "^11.7.5"
+  }
+}

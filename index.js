@@ -1,5 +1,3 @@
-
-
 const options = {
   method: "GET",
   headers: {
@@ -20,9 +18,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
-    const trailerSection = document.querySelector(".trailerSection source");
+    let trailerSection = document.querySelector(".trailerSection source");
+    const trailerButton = document.querySelector(".trailerButton");
 
-    // trailerSection.addEventListener("click", watchTrailer);
+    console.log(trailerSection.src);
 
     console.log(trailerSection);
 
@@ -39,6 +38,14 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     chevronRight.addEventListener("click", swipeRight);
     chevronLeft.addEventListener("click", swipeLeft);
+    trailerButton.addEventListener("click", playTrailer);
+
+    console.log(response);
+
+    function playTrailer() {
+      trailerSection.src = response[counting].trailer;
+      console.log(trailerSection.src);
+    }
 
     function swipeLeft() {
       counting--;
@@ -68,6 +75,24 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       description.innerHTML = response[counting].description;
       console.log(counting);
     }
-  })
 
+    console.log("iframe:", `${response[counting].trailer}?autoplay=1`);
 
+    trailerButton.addEventListener("click", () => {
+      Swal.fire({
+        title: response[counting].title,
+        html: `<iframe id="ytplayer" type="text/html" width="100%" height="360"
+        src="${response[counting].trailer}?autoplay=1"
+        frameborder="0"></iframe>`,
+        width: "",
+        showCloseButton: true,
+        showConfirmButton: false,
+        buttonsStyling: true,
+        customClass: {
+          popup: "trailerPopup",
+        },
+      });
+    });
+  });
+
+console.log(Swal);

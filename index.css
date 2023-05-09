@@ -14,8 +14,6 @@ body {
 
 .mainContainer {
   position: relative;
-  height: 100%;
-  width: 100%;
   background-color: grey;
 }
 
@@ -56,7 +54,6 @@ ul {
 }
 
 li {
- 
 }
 
 .homeSearchWatcList li {
@@ -104,9 +101,10 @@ li {
 
 .carousel {
   position: relative;
-  height: 550px;
+  height: fit-content;
   border: 1px black solid;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .movie {
@@ -153,15 +151,20 @@ li {
 .fa-chevron-right {
   position: absolute;
   top: 50%;
-  left: 102%;
+  left: 90%;
   transform: translate(-50%, -50%);
 }
 
 .fa-chevron-left {
   position: absolute;
   top: 50%;
-  left: -2%;
+  left: 9%;
   transform: translate(-50%, -50%);
+}
+
+.fa-chevron-right:hover,
+.fa-chevron-left:hover {
+  background-color: rgb(0, 0, 0.8);
 }
 
 .smallDots {
@@ -175,8 +178,6 @@ li {
   margin-right: 10px;
 }
 
-
-
 img {
   object-fit: cover;
   display: block;
@@ -187,7 +188,7 @@ img {
 }
 
 img:hover {
-  border-width: 10px;
+  border-width: 5px;
 }
 
 .title {
@@ -207,9 +208,15 @@ img:hover {
   border: 1px solid;
   border-radius: 10px;
   margin-top: 10px;
+  width: 33.3333%;
+  margin: 0 auto;
 }
 
 .movieInfo,
 .trailerSection {
   height: 50%;
+}
+
+.trailerPopup {
+  background-color: red;
 }
