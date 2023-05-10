@@ -18,12 +18,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
     const directors = document.querySelector(".directors");
+    const selectByDirectors = document.querySelector(".selectByDirectors");
+    const selectByGenres = document.querySelector(".selectByGenres");
     let trailerSection = document.querySelector(".trailerSection source");
     const trailerButton = document.querySelector(".trailerButton");
 
-    console.log(directors);
+    console.log({ director: selectByDirectors }, { genre: selectByGenres });
+    console.log(response);
 
     let directorsNameListWithDuplicates = [];
+    let genreListWithDuplicates = [];
 
     response.forEach((item) => {
       directorsNameListWithDuplicates.push(...item.director);
@@ -35,17 +39,30 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     console.log(directorsNameListNoDuplicates);
 
-    directorsNameListNoDuplicates.forEach((director) => {
-      const element = document.createElement("div");
-      element.innerHTML = director;
-      directors.appendChild(element);
+    response.forEach((item) => {
+      genreListWithDuplicates.push(...item.genre);
     });
+
+    let genreListWithNoDuplicates = [...new Set(genreListWithDuplicates)];
+
+    console.log(genreListWithNoDuplicates);
+
+    // reponse.forEach(item)
+
+    function showDirectors() {
+      directorsNameListNoDuplicates.forEach((director) => {
+        const element = document.createElement("div");
+        element.innerHTML = director;
+        directors.appendChild(element);
+      });
+    }
 
     let counting = 0;
 
     chevronRight.addEventListener("click", swipeRight);
     chevronLeft.addEventListener("click", swipeLeft);
     trailerButton.addEventListener("click", playTrailer);
+    selectByDirectors.addEventListener("click", showDirectors);
 
     function playTrailer() {
       trailerSection.src = response[counting].trailer;

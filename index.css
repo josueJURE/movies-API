@@ -131,7 +131,7 @@ li {
 
 .directors {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   align-items: center;
   margin-top: 175px;
   margin-left: 50%;
@@ -139,13 +139,23 @@ li {
   width: 90%;
   height: 250px;
   border-radius: 10px;
-  column-gap: 10px;
+  column-gap: 15px;
+  row-gap: 15px;
 }
 
 .directors > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 150px;
   width: 300px;
   border: 1px black solid;
+  border-radius: 10px;
+}
+
+.directors > div:hover {
+  scale: 1.01;
+
 }
 
 .fa-chevron-right {
@@ -219,4 +229,9 @@ img:hover {
 
 .trailerPopup {
   background-color: red;
+}
+
+.selectByDirectors,
+.selectByGenres {
+  color: black;
 }
