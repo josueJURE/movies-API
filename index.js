@@ -43,7 +43,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       genreListWithDuplicates.push(...item.genre);
     });
 
-    let genreListWithNoDuplicates = [...new Set(genreListWithDuplicates)];
+    let genreListWithNoDuplicates = [...new Set(genreListWithDuplicates)].sort();
 
     console.log(genreListWithNoDuplicates);
 
