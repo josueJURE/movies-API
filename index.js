@@ -1,8 +1,3 @@
-
-
-
-
-
 const options = {
   method: "GET",
   headers: {
@@ -22,29 +17,29 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
+    const directors = document.querySelector(".directors");
     let trailerSection = document.querySelector(".trailerSection source");
     const trailerButton = document.querySelector(".trailerButton");
 
-  
+    console.log(directors);
 
-    let directors = []
+    let directorsNameListWithDuplicates = [];
 
-    response.forEach(item => {
-      directors.push(...item.director)
-    })
+    response.forEach((item) => {
+      directorsNameListWithDuplicates.push(...item.director);
+    });
 
-    let uniqueDirectorNames = [...new Set(directors)]
+    let directorsNameListNoDuplicates = [
+      ...new Set(directorsNameListWithDuplicates),
+    ];
 
-    console.log(uniqueDirectorNames)
+    console.log(directorsNameListNoDuplicates);
 
-
-    
-
-
-
-
-  
-   
+    directorsNameListNoDuplicates.forEach((director) => {
+      const element = document.createElement("div");
+      element.innerHTML = director;
+      directors.appendChild(element);
+    });
 
     let counting = 0;
 

@@ -130,8 +130,8 @@ li {
 }
 
 .directors {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   margin-top: 175px;
   margin-left: 50%;
