@@ -1,3 +1,8 @@
+
+
+
+
+
 const options = {
   method: "GET",
   headers: {
@@ -9,7 +14,6 @@ const options = {
 fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => response.json())
   .then((response) => {
-    const mainContainer = document.querySelector(".mainContainer");
     const chevronRight = document.querySelector(".fa-chevron-right");
     const chevronLeft = document.querySelector(".fa-chevron-left");
     const img = document.querySelector(".carousel img");
@@ -21,26 +25,32 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     let trailerSection = document.querySelector(".trailerSection source");
     const trailerButton = document.querySelector(".trailerButton");
 
-    console.log(trailerSection.src);
+  
 
-    console.log(trailerSection);
+    let directors = []
+
+    response.forEach(item => {
+      directors.push(...item.director)
+    })
+
+    let uniqueDirectorNames = [...new Set(directors)]
+
+    console.log(uniqueDirectorNames)
+
+
+    
+
+
+
+
+  
+   
 
     let counting = 0;
-
-    img.src = response[counting].image;
-    trailerSection.src = response[counting].trailer;
-    response[counting].image;
-    response[counting].director;
-    response[counting].genre;
-    response[counting].rating;
-    response[counting].title;
-    response[counting].description;
 
     chevronRight.addEventListener("click", swipeRight);
     chevronLeft.addEventListener("click", swipeLeft);
     trailerButton.addEventListener("click", playTrailer);
-
-    console.log(response);
 
     function playTrailer() {
       trailerSection.src = response[counting].trailer;
@@ -65,7 +75,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     function populateFields() {
-      // console.log(director, genre, rating)
       img.src = response[counting].image;
       director.innerHTML = `Director: ${response[counting].director}`;
       genre.innerHTML = `Genre: ${response[counting].genre}`;
@@ -73,8 +82,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       title.innerHTML = response[counting].title;
       description.innerHTML = response[counting].description;
     }
-
-    console.log("iframe:", `${response[counting].trailer}?autoplay=1`);
 
     trailerButton.addEventListener("click", () => {
       Swal.fire({
@@ -94,4 +101,5 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     populateFields();
   });
+
 console.log(Swal);
