@@ -84,13 +84,13 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     function userSelectByGenre(e) {
       directors.innerHTML = "";
       const selectedGenre = e.target.value;
-      response.forEach((res) => {
-        if (res.genre.includes(selectedGenre)) {
+      response
+        .filter((res) => res.genre.includes(selectedGenre))
+        .forEach((movie) => {
           const element = document.createElement("div");
-          element.innerHTML = res.title;
+          element.innerHTML = movie.title;
           directors.appendChild(element);
-        }
-      });
+        });
     }
 
     let counting = 0;
