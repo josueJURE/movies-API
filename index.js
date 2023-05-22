@@ -29,6 +29,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     let directorsNameListWithDuplicates = [];
     let genreListWithDuplicates = [];
 
+    // can this be refactored into a funcion
     response.forEach((item) => {
       directorsNameListWithDuplicates.push(...item.director);
     });
@@ -43,19 +44,40 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       genreListWithDuplicates.push(...item.genre);
     });
 
-    let genreListWithNoDuplicates = [...new Set(genreListWithDuplicates)].sort();
+    let genreListWithNoDuplicates = [
+      ...new Set(genreListWithDuplicates),
+    ].sort();
 
     console.log(genreListWithNoDuplicates);
 
-    // reponse.forEach(item)
+    let isListEmpty = true;
 
     function showDirectors() {
-      directorsNameListNoDuplicates.forEach((director) => {
-        const element = document.createElement("div");
-        element.innerHTML = director;
-        directors.appendChild(element);
+      // if (section is empty) show list
+      if (isListEmpty) {
+        directorsNameListNoDuplicates.forEach((director) => {
+          const element = document.createElement("div");
+          element.innerHTML = director;
+          directors.appendChild(element);
+        });
+        isListEmpty = false;
+      }
+
+      // else hide list
+      else {
+        directors.innerHTML = "";
+        isListEmpty = true;
+      }
+    }
+
+    function displayGenres() {
+      genreListWithNoDuplicates.forEach((genre) => {
+        const element = document.createElement("option");
+        element.innerHTML = genre;
+        selectByGenres.appendChild(element);
       });
     }
+    displayGenres();
 
     let counting = 0;
 
