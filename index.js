@@ -79,6 +79,28 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
     displayGenres();
 
+    selectByGenres.addEventListener("change", userSelectByGenre);
+
+    function userSelectByGenre(e) {
+      directors.innerHTML = "";
+      let arrayOfSelectedMovies = [];
+      let target = e.target;
+      console.log(target.value);
+      response.forEach((rep) => {
+        console.log(rep.genre);
+        if (rep.genre.includes(target.value)) {
+          arrayOfSelectedMovies.push(rep.title);
+          console.log(arrayOfSelectedMovies);
+        }
+      });
+      arrayOfSelectedMovies.forEach((selectedMovie) => {
+        const element = document.createElement("div");
+        element.innerHTML = selectedMovie;
+        directors.appendChild(element);
+      });
+      console.log(arrayOfSelectedMovies);
+    }
+
     let counting = 0;
 
     chevronRight.addEventListener("click", swipeRight);
