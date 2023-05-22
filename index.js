@@ -88,7 +88,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         .filter((res) => res.genre.includes(selectedGenre))
         .forEach((movie) => {
           const element = document.createElement("div");
-          element.innerHTML = movie.title;
+          const img = document.createElement("img")
+          img.src = movie.image;
+          element.appendChild(img);
           directors.appendChild(element);
         });
     }
