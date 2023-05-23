@@ -22,6 +22,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const selectByGenres = document.querySelector(".selectByGenres");
     let trailerSection = document.querySelector(".trailerSection source");
     const trailerButton = document.querySelector(".trailerButton");
+    const searchByGenre = document.querySelector(".searchByGenre");
 
     console.log({ director: selectByDirectors }, { genre: selectByGenres });
     console.log(response);
@@ -88,8 +89,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         .filter((res) => res.genre.includes(selectedGenre))
         .forEach((movie) => {
           const element = document.createElement("div");
-          const img = document.createElement("img")
+          const img = document.createElement("img");
           img.src = movie.image;
+          img.style.height = "max-content";
           element.appendChild(img);
           directors.appendChild(element);
         });
@@ -101,6 +103,12 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     chevronLeft.addEventListener("click", swipeLeft);
     trailerButton.addEventListener("click", playTrailer);
     selectByDirectors.addEventListener("click", showDirectors);
+    searchByGenre.addEventListener("click", goToSearchByGenrePage);
+
+    function goToSearchByGenrePage() {
+      console.log("genre");
+      window.location.assign("/searchByGenrePage.html");
+    }
 
     function playTrailer() {
       trailerSection.src = response[counting].trailer;
