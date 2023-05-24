@@ -80,18 +80,20 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     function userSelectByGenre(e) {
-      directors.innerHTML = "";
-      const selectedGenre = e.target.value;
-      response
-        .filter((res) => res.genre.includes(selectedGenre))
-        .forEach((movie) => {
-          const element = document.createElement("div");
-          const img = document.createElement("img");
-          img.src = movie.image;
-          img.style.height = "max-content";
-          element.appendChild(img);
-          directors.appendChild(element);
-        });
+      if (directors) {
+        directors.innerHTML = "";
+        const selectedGenre = e.target.value;
+        response
+          .filter((res) => res.genre.includes(selectedGenre))
+          .forEach((movie) => {
+            const element = document.createElement("div");
+            const img = document.createElement("img");
+            img.src = movie.image;
+            img.style.height = "max-content";
+            element.appendChild(img);
+            directors.appendChild(element);
+          });
+      }
     }
 
     let counting = 0;
@@ -113,8 +115,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     if (selectByGenres) {
       selectByGenres.addEventListener("change", userSelectByGenre);
-      displayGenres();
+      displayGenres(); 
+      
     }
+   
 
     function goToSearchByGenrePage() {
       console.log("genre");

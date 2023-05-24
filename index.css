@@ -147,7 +147,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 150px;
+  /* height: 150px; */
   width: 300px;
   border: 1px black solid;
   border-radius: 10px;
