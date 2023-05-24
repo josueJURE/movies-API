@@ -103,7 +103,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       chevronLeft.addEventListener("click", swipeLeft);
     }
 
-    if (directors) {
+    if (selectByDirectors) {
       selectByDirectors.addEventListener("click", showDirectors);
     }
 
