@@ -79,8 +79,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       });
     }
 
-
-
     function userSelectByGenre(e) {
       directors.innerHTML = "";
       const selectedGenre = e.target.value;
@@ -104,9 +102,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     if (chevronLeft) {
       chevronLeft.addEventListener("click", swipeLeft);
     }
-    // if (trailerButton) {
-    //   trailerButton.addEventListener("click", playTrailer);
-    // }
+
     if (directors) {
       selectByDirectors.addEventListener("click", showDirectors);
     }
@@ -124,11 +120,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       console.log("genre");
       window.location.assign("/searchByGenrePage.html");
     }
-
-    // function playTrailer() {
-    //   trailerSection.src = response[counting].trailer;
-    //   console.log(trailerSection.src);
-    // }
 
     function swipeLeft() {
       counting--;
@@ -148,19 +139,17 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     function populateFields() {
-      if(img) {
+      if (img) {
         img.src = response[counting].image;
         director.innerHTML = `Director: ${response[counting].director}`;
         genre.innerHTML = `Genre: ${response[counting].genre}`;
         rating.innerHTML = `Rating ${response[counting].rating}`;
         title.innerHTML = response[counting].title;
         description.innerHTML = response[counting].description;
-
       }
-     
     }
 
-    if(trailerButton) {
+    if (trailerButton) {
       trailerButton.addEventListener("click", () => {
         Swal.fire({
           title: response[counting].title,
@@ -176,10 +165,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           },
         });
       });
-
     }
-
-
 
     populateFields();
   });
