@@ -1,10 +1,10 @@
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": window.IMDB_API_KEY,
-//     "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
-//   },
-// };
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": window.IMDB_API_KEY,
+    "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
+  },
+};
 
 fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => response.json())
@@ -25,6 +25,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const searchByGenre = document.querySelector(".searchByGenre");
     const searchByDirectors = document.querySelector(".searchByDirectors");
     const home = document.querySelector(".home");
+    const watchList = document.querySelector(".watchList");
+  
 
     console.log({ director: selectByDirectors }, { genre: selectByGenres });
     console.log(response);
@@ -101,6 +103,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     let counting = 0;
 
+
+
     if (chevronRight) {
       chevronRight.addEventListener("click", swipeRight);
     }
@@ -136,6 +140,12 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     function goToSearchByGenrePage() {
       console.log("genre");
       window.location.assign("/searchByGenrePage.html");
+    }
+
+    if(watchList) {
+      watchList.addEventListener("click", function() {
+        window.location.assign("/watchList.html");
+      })
     }
 
     function swipeLeft() {
