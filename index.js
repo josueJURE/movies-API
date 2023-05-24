@@ -1,10 +1,10 @@
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": window.IMDB_API_KEY,
-    "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
-  },
-};
+// const options = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": window.IMDB_API_KEY,
+//     "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
+//   },
+// };
 
 fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => response.json())
@@ -23,6 +23,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     let trailerSection = document.querySelector(".trailerSection source");
     const trailerButton = document.querySelector(".trailerButton");
     const searchByGenre = document.querySelector(".searchByGenre");
+    const searchByDirectors = document.querySelector(".searchByDirectors");
+    const home = document.querySelector(".home");
 
     console.log({ director: selectByDirectors }, { genre: selectByGenres });
     console.log(response);
@@ -89,6 +91,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             const element = document.createElement("div");
             const img = document.createElement("img");
             img.src = movie.image;
+            img.title = movie.description;
             img.style.height = "max-content";
             element.appendChild(img);
             directors.appendChild(element);
@@ -115,10 +118,20 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     if (selectByGenres) {
       selectByGenres.addEventListener("change", userSelectByGenre);
-      displayGenres(); 
-      
+      displayGenres();
     }
-   
+
+    if (home) {
+      home.addEventListener("click", function () {
+        window.location.assign("/index.html");
+      });
+    }
+
+    if (searchByDirectors) {
+      searchByDirectors.addEventListener("click", function () {
+        window.location.assign("/searchByDirectors.html");
+      });
+    }
 
     function goToSearchByGenrePage() {
       console.log("genre");
@@ -173,5 +186,3 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     populateFields();
   });
-
-console.log(Swal);
