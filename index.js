@@ -28,6 +28,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const searchByDirectors = document.querySelector(".searchByDirectors");
     const home = document.querySelector(".home");
     const watchList = document.querySelector(".watchList");
+    const userWatchlistParentElement = document.querySelector(
+      ".userWatchlistParentElement"
+    );
 
     console.log({ director: selectByDirectors }, { genre: selectByGenres });
     console.log(response);
@@ -98,7 +101,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               if (tasks.filter((task) => task.id == movie.id).length == 0) {
                 tasks.push(movie);
                 localStorage.setItem("tasks", JSON.stringify(tasks));
-                console.log("test");
               }
             });
             img.src = movie.image;
@@ -108,6 +110,20 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             directors.appendChild(element);
           });
       }
+    }
+
+    if (userWatchlistParentElement) {
+      const tasks = getTasksFromLocalStorage();
+      console.log(tasks)
+      const element = document.createElement("div");
+      const img = document.createElement("img");
+      tasks.forEach((task) => {
+        img.src = task.image;
+        img.title = task.description;
+        element.appendChild(img);
+        userWatchlistParentElement.appendChild(element);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      });
     }
 
     let counting = 0;
