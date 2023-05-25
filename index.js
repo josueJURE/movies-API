@@ -114,10 +114,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     if (userWatchlistParentElement) {
       const tasks = getTasksFromLocalStorage();
-      console.log(tasks)
-      const element = document.createElement("div");
-      const img = document.createElement("img");
+      console.log(tasks);
+
       tasks.forEach((task) => {
+        const element = document.createElement("div");
+        const img = document.createElement("img");
         img.src = task.image;
         img.title = task.description;
         element.appendChild(img);
