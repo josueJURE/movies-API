@@ -129,7 +129,8 @@ li {
   flex-direction: column;
 }
 
-.directors {
+.directors,
+.userWatchlistParentElement {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
@@ -143,7 +144,8 @@ li {
   row-gap: 15px;
 }
 
-.directors > div
+.directors > div,
+.userWatchlistParentElement > div
  {
   display: flex;
   align-items: center;
