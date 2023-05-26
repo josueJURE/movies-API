@@ -19,7 +19,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
-    const typesOfgenre  = document.querySelector(".typesOfgenre ");
+    const typesOfgenre = document.querySelector(".typesOfgenre ");
     const selectByDirectors = document.querySelector(".selectByDirectors");
     const selectByGenres = document.querySelector(".selectByGenres");
     let trailerSection = document.querySelector(".trailerSection source");
@@ -31,9 +31,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const userWatchlistParentElement = document.querySelector(
       ".userWatchlistParentElement"
     );
+    const pickAdirector = document.querySelector(".pickAdirector");
 
     console.log({ director: selectByDirectors }, { genre: selectByGenres });
     console.log(response);
+    console.log(pickAdirector);
 
     let directorsNameListWithDuplicates = [];
     let genreListWithDuplicates = [];
@@ -67,19 +69,19 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         directorsNameListNoDuplicates.forEach((director) => {
           const element = document.createElement("div");
           element.innerHTML = director;
-          typesOfgenre .appendChild(element);
+          typesOfgenre.appendChild(element);
         });
         isListEmpty = false;
       }
 
       // else hide list
       else {
-        typesOfgenre .innerHTML = "";
+        typesOfgenre.innerHTML = "";
         isListEmpty = true;
       }
     }
 
-    function displayGenres() {
+    function userChoosesFromRangeOfOptions() {
       genreListWithNoDuplicates.forEach((genre) => {
         const element = document.createElement("option");
         element.innerHTML = genre;
@@ -87,9 +89,17 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       });
     }
 
+    if (pickAdirector) {
+      directorsNameListNoDuplicates.forEach((directorName) => {
+        const option = document.createElement("option");
+        option.innerHTML = directorName;
+        pickAdirector.appendChild(option);
+      });
+    }
+
     function userSelectByGenre(e) {
-      if (typesOfgenre ) {
-        typesOfgenre .innerHTML = "";
+      if (typesOfgenre) {
+        typesOfgenre.innerHTML = "";
         const selectedGenre = e.target.value;
         response
           .filter((res) => res.genre.includes(selectedGenre))
@@ -106,7 +116,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             img.src = movie.image;
             img.title = movie.description;
             element.appendChild(img);
-            typesOfgenre .appendChild(element);
+            typesOfgenre.appendChild(element);
           });
       }
     }
@@ -146,7 +156,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     if (selectByGenres) {
       selectByGenres.addEventListener("change", userSelectByGenre);
-      displayGenres();
+      userChoosesFromRangeOfOptions();
     }
 
     if (home) {
@@ -155,13 +165,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       });
     }
 
-
-
-
-
     if (searchByDirectors) {
       searchByDirectors.addEventListener("click", function () {
-        console.log("directors")
+        console.log("directors");
         window.location.assign("/searchByDirectors.html");
       });
     }
