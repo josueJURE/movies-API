@@ -81,23 +81,33 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
     }
 
-    function userChoosesFromRangeOfOptions() {
-      genreListWithNoDuplicates.forEach((genre) => {
+    // function userChoosesFromRangeOfOptions() {
+    //   genreListWithNoDuplicates.forEach((genre) => {
+    //     const element = document.createElement("option");
+    //     element.innerHTML = genre;
+    //     selectByGenres.appendChild(element);
+    //   });
+    // }
+
+    function userChoosesFromRangeOfOptions(array, parentElement) {
+      array.forEach((item) => {
         const element = document.createElement("option");
-        element.innerHTML = genre;
-        selectByGenres.appendChild(element);
+        element.innerHTML = item;
+        parentElement.appendChild(element);
       });
     }
+    
 
-    if (pickAdirector) {
-      directorsNameListNoDuplicates.forEach((directorName) => {
-        const option = document.createElement("option");
-        option.innerHTML = directorName;
-        pickAdirector.appendChild(option);
-      });
-    }
 
-    function userSelectByGenre(e) {
+    // if (pickAdirector) {
+    //   directorsNameListNoDuplicates.forEach((directorName) => {
+    //     const option = document.createElement("option");
+    //     option.innerHTML = directorName;
+    //     pickAdirector.appendChild(option);
+    //   });
+    // }
+
+    function userMakesAselection(e) {
       if (typesOfgenre) {
         typesOfgenre.innerHTML = "";
         const selectedGenre = e.target.value;
@@ -155,10 +165,17 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     if (selectByGenres) {
-      selectByGenres.addEventListener("change", userSelectByGenre);
-      userChoosesFromRangeOfOptions();
+      selectByGenres.addEventListener("change", userMakesAselection);
+      userChoosesFromRangeOfOptions(genreListWithDuplicates, selectByGenres);
     }
 
+    if(pickAdirector) {
+      pickAdirector.addEventListener("change", userMakesAselection);
+      userChoosesFromRangeOfOptions(directorsNameListNoDuplicates, pickAdirector);
+    
+    }
+
+  
     if (home) {
       home.addEventListener("click", function () {
         window.location.assign("/index.html");
