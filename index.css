@@ -129,7 +129,7 @@ li {
   flex-direction: column;
 }
 
-.directors,
+.typesOfgenre ,
 .userWatchlistParentElement {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -144,7 +144,7 @@ li {
   row-gap: 15px;
 }
 
-.directors > div,
+.typesOfgenre  > div,
 .userWatchlistParentElement > div
  {
   display: flex;
@@ -152,7 +152,7 @@ li {
   justify-content: center;
 }
 
-.directors > div:hover {
+.typesOfgenre  > div:hover {
   scale: 1.01;
 }
 

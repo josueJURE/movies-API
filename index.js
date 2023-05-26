@@ -19,7 +19,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
-    const directors = document.querySelector(".directors");
+    const typesOfgenre = document.querySelector(".typesOfgenre");
     const selectByDirectors = document.querySelector(".selectByDirectors");
     const selectByGenres = document.querySelector(".selectByGenres");
     let trailerSection = document.querySelector(".trailerSection source");
@@ -67,14 +67,14 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         directorsNameListNoDuplicates.forEach((director) => {
           const element = document.createElement("div");
           element.innerHTML = director;
-          directors.appendChild(element);
+          typesOfgenre.appendChild(element);
         });
         isListEmpty = false;
       }
 
       // else hide list
       else {
-        directors.innerHTML = "";
+        typesOfgenre.innerHTML = "";
         isListEmpty = true;
       }
     }
@@ -88,8 +88,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     function userSelectByGenre(e) {
-      if (directors) {
-        directors.innerHTML = "";
+      if (typesOfgenre) {
+        typesOfgenre.innerHTML = "";
         const selectedGenre = e.target.value;
         response
           .filter((res) => res.genre.includes(selectedGenre))
@@ -106,7 +106,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             img.src = movie.image;
             img.title = movie.description;
             element.appendChild(img);
-            directors.appendChild(element);
+            typesOfgenre.appendChild(element);
           });
       }
     }
@@ -170,15 +170,17 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       directorsNameListWithDuplicates.push(...item.director);
     });
 
+    response.forEach((item) => {
+      genreListWithDuplicates.push(...item.genre);
+    });
+
     let directorsNameListNoDuplicates = [
       ...new Set(directorsNameListWithDuplicates),
     ];
 
     console.log(directorsNameListNoDuplicates);
 
-    response.forEach((item) => {
-      genreListWithDuplicates.push(...item.genre);
-    });
+ 
 
     let genreListWithNoDuplicates = [
       ...new Set(genreListWithDuplicates),
@@ -447,9 +449,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       tasks.forEach((task) => {
         const element = document.createElement("div");
         const img = document.createElement("img");
+        const button = document.createElement("button")
         img.src = task.image;
         img.title = task.description;
         element.appendChild(img);
+        element.appendChild(button)
         userWatchlistParentElement.appendChild(element);
       });
       localStorage.setItem("tasks", JSON.stringify(tasks));
