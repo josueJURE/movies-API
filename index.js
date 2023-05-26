@@ -45,7 +45,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     let directorsNameListNoDuplicates = [
       ...new Set(directorsNameListWithDuplicates),
-    ];
+    ].sort();
 
     console.log(directorsNameListNoDuplicates);
 
