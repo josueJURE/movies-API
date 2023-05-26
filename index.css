@@ -129,6 +129,7 @@ li {
   flex-direction: column;
 }
 
+.directors,
 .typesOfgenre ,
 .userWatchlistParentElement {
   display: grid;
@@ -145,6 +146,7 @@ li {
 }
 
 .typesOfgenre  > div,
+.directors > div,
 .userWatchlistParentElement > div
  {
   display: flex;
