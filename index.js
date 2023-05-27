@@ -22,7 +22,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const typesOfgenre = document.querySelector(".typesOfgenre ");
     const selectByDirectors = document.querySelector(".selectByDirectors");
     const selectByGenres = document.querySelector(".selectByGenres");
-    let trailerSection = document.querySelector(".trailerSection source");
     const trailerButton = document.querySelector(".trailerButton");
     const searchByGenre = document.querySelector(".searchByGenre");
     const searchByDirectors = document.querySelector(".searchByDirectors");
@@ -33,8 +32,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     );
     const pickAdirector = document.querySelector(".pickAdirector");
     const directors = document.querySelector(".directors")
+    const topTen = document.querySelector(".topTen");
 
-    console.log(directors)
+
+
 
     console.log({ director: selectByDirectors }, { genre: selectByGenres });
     console.log(response);
@@ -215,6 +216,12 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         console.log("directors");
         window.location.assign("/searchByDirectors.html");
       });
+    }
+
+    if(topTen) {
+      topTen.addEventListener("click", function() {
+        console.log("topTen")
+      })
     }
 
     function goToSearchByGenrePage() {
