@@ -62,6 +62,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     console.log(genreListWithNoDuplicates);
 
     if (topTenParentElement) {
+      displayTopTenMovies();
+    }
+
+    function displayTopTenMovies() {
       response.splice(0, 10).forEach((movie) => {
         const element = document.createElement("div");
         const img = document.createElement("img");
