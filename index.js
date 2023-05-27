@@ -33,6 +33,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const pickAdirector = document.querySelector(".pickAdirector");
     const directors = document.querySelector(".directors")
     const topTen = document.querySelector(".topTen");
+    const topTenParentElement = document.querySelector(".topTenParentElement");
+
+    console.log(topTenParentElement)
 
 
 
@@ -220,12 +223,12 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     if(topTen) {
       topTen.addEventListener("click", function() {
+        window.location.assign("/topTen.html")
         console.log("topTen")
       })
     }
 
     function goToSearchByGenrePage() {
-      console.log("genre");
       window.location.assign("/searchByGenrePage.html");
     }
 
