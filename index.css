@@ -129,6 +129,7 @@ li {
   flex-direction: column;
 }
 
+.topTenParentElement,
 .directors,
 .typesOfgenre ,
 .userWatchlistParentElement {
