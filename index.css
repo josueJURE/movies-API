@@ -236,3 +236,7 @@ img:hover {
 .selectByGenres {
   color: black;
 }
+
+.moviesBy {
+  text-align: center;
+} 
