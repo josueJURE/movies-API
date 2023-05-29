@@ -9,12 +9,12 @@
 }
 
 body {
-  background-color: grey;
+  background-color: #171B26
 }
 
 .mainContainer {
   position: relative;
-  background-color: grey;
+  background-color: #0C0D14
 }
 
 nav {
