@@ -15,8 +15,7 @@ body {
 
 .mainContainer {
   position: relative;
-  height: 100vh;
-  background-color: #0C0D14
+  height: 100%;
 }
 
 nav {
