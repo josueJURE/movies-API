@@ -160,19 +160,10 @@ li {
   scale: 1.01;
 }
 
-/* .fa-chevron-right {
-  position: absolute;
-  top: 50%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-} */
-
-/* .fa-chevron-left {
-  position: absolute;
-  top: 50%;
-  left: 9%;
-  transform: translate(-50%, -50%);
-} */
+.carouselParentContainer {
+ display: flex;
+ align-items: center ;
+}
 
 .fa-chevron-right:hover,
 .fa-chevron-left:hover {
