@@ -165,10 +165,23 @@ li {
  align-items: center ;
 }
 
-.fa-chevron-right:hover,
+/* .fa-chevron-right:hover,
 .fa-chevron-left:hover {
   background-color: rgb(0, 0, 0.8);
+} */
+
+.fa-chevron-right {
+  padding-right: 20px;
 }
+
+.fa-chevron-left {
+  padding-left: 20px;
+
+}
+
+
+
+
 
 .smallDots {
   display: flex;
