@@ -19,8 +19,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
-    const typesOfgenre = document.querySelector(".typesOfgenre ")
-   
+    const typesOfgenre = document.querySelector(".typesOfgenre ");
+
     const selectByGenres = document.querySelector(".selectByGenres");
     const trailerButton = document.querySelector(".trailerButton");
     const searchByGenre = document.querySelector(".searchByGenre");
@@ -86,7 +86,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
     }
 
-  
     function populateOptionsFromArray(array, parentElement) {
       array.forEach((item) => {
         const element = document.createElement("option");
@@ -94,8 +93,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         parentElement.appendChild(element);
       });
     }
-
-   
 
     function userMakesAselection(e) {
       if (typesOfgenre) {
@@ -129,6 +126,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         response
           .filter((res) => res.director.includes(selectedGenre))
           .forEach((movie) => {
+            const elementToInsert = document.createElement("div");
             const element = document.createElement("div");
             const img = document.createElement("img");
             img.addEventListener("click", function () {
@@ -142,14 +140,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             // img.title = movie.description;
             element.appendChild(img);
             directors.appendChild(element);
-            element.addEventListener("mouseover", function(e) {
-              console.log(e)
+            element.addEventListener("mouseover", function (e) {
+              console.log(e);
               const targetElement = e.target;
-              const elementToInsert = document.createElement("div");
               elementToInsert.innerHTML = movie.description;
               targetElement.insertAdjacentElement("afterend", elementToInsert);
-            })
-           
+            });
+
+            element.addEventListener("mouseleave", function () {
+              elementToInsert.remove();
+            });
           });
       }
     }
