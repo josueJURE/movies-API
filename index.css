@@ -255,6 +255,18 @@ img:hover {
   background: #fff;
 }
 
+.textColor { 
+  color: black;
+}
 
+.year,
+.description {
+  margin-bottom: 20px;
+}
+
+.bubbleSpeech {
+  display: grid;
+  justify-content: space-around;
+}
 
 

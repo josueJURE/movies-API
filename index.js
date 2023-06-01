@@ -144,14 +144,20 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             element.addEventListener("mouseover", function (e) {
               console.log(e.nextSibling, e);
               targetElement = e.target;
-              elementToInsert.setAttribute("class", "movieInfo")
-              elementToInsert.innerHTML = `${movie.description}`
+              elementToInsert.setAttribute("class", "movieInfo");
+              elementToInsert.innerHTML = `
+             
+              <div class="textColor year">Year: ${movie.year}</div>
+              <div class="textColor description">${movie.description}</div>
+              <button class="textColor">Add to watch list</button>
+            
+             
+              `;
               targetElement.insertAdjacentElement("afterend", elementToInsert);
             });
 
             element.addEventListener("mouseleave", function () {
               elementToInsert.remove();
-;
             });
           });
       }
