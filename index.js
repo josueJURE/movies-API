@@ -139,9 +139,17 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               }
             });
             img.src = movie.image;
-            img.title = movie.description;
+            // img.title = movie.description;
             element.appendChild(img);
             directors.appendChild(element);
+            element.addEventListener("mouseover", function(e) {
+              console.log(e)
+              const targetElement = e.target;
+              const elementToInsert = document.createElement("div");
+              elementToInsert.innerHTML = movie.description;
+              targetElement.insertAdjacentElement("afterend", elementToInsert);
+            })
+           
           });
       }
     }
