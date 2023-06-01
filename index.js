@@ -126,7 +126,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         response
           .filter((res) => res.director.includes(selectedGenre))
           .forEach((movie) => {
-            const elementToInsert = document.createElement("div");
+            let elementToInsert = document.createElement("div");
+            let targetElement;
             const element = document.createElement("div");
             const img = document.createElement("img");
             img.addEventListener("click", function () {
@@ -141,14 +142,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             element.appendChild(img);
             directors.appendChild(element);
             element.addEventListener("mouseover", function (e) {
-              console.log(e);
-              const targetElement = e.target;
-              elementToInsert.innerHTML = movie.description;
+              console.log(e.nextSibling, e);
+              targetElement = e.target;
+              elementToInsert.setAttribute("class", "movieInfo")
+              elementToInsert.innerHTML = `${movie.description}`
               targetElement.insertAdjacentElement("afterend", elementToInsert);
             });
 
             element.addEventListener("mouseleave", function () {
               elementToInsert.remove();
+;
             });
           });
       }

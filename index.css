@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #171B26;
+  background-color: #171b26;
   height: 100vh;
 }
 
@@ -132,7 +132,7 @@ li {
 
 .topTenParentElement,
 .directors,
-.typesOfgenre ,
+.typesOfgenre,
 .userWatchlistParentElement {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -147,22 +147,21 @@ li {
   row-gap: 15px;
 }
 
-.typesOfgenre  > div,
+.typesOfgenre > div,
 .directors > div,
-.userWatchlistParentElement > div
- {
+.userWatchlistParentElement > div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.typesOfgenre  > div:hover {
+.typesOfgenre > div:hover {
   scale: 1.01;
 }
 
 .carouselParentContainer {
- display: flex;
- align-items: center ;
+  display: flex;
+  align-items: center;
 }
 
 .fa-chevron-right,
@@ -176,12 +175,7 @@ li {
 
 .fa-chevron-left {
   padding-right: 20px;
-
 }
-
-
-
-
 
 .smallDots {
   display: flex;
@@ -244,4 +238,23 @@ img:hover {
 
 .moviesBy {
   text-align: center;
-} 
+}
+
+.movieInfo {
+  height: 450px;
+  width: 350px;
+  border: white solid 2px;
+  z-index: 100;
+  color: black;
+  padding: 10px;
+  overflow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background: #fff;
+}
+
+
+
+
