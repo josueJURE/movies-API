@@ -255,6 +255,13 @@ img:hover {
   background: #fff;
 }
 
+.filmInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .textColor { 
   color: black;
 }
