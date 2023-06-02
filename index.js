@@ -157,7 +157,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               targetElement.insertAdjacentElement("afterend", elementToInsert);
             });
 
-            element.addEventListener("mouseleave", function () {
+            element.addEventListener("mouseout", function () {
               elementToInsert.remove();
             });
           });
