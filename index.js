@@ -149,6 +149,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
              
               <div class="textColor year">Year: ${movie.year}</div>
               <div class="textColor description">${movie.description}</div>
+              <i class="fa fa-plus" aria-hidden="true"></i>
               <button class="textColor">Add to watch list</button>
             
              
