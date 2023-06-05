@@ -66,17 +66,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       displayTopTenMovies();
     }
 
-    let isListEmpty = true;
-
-  
-
-      // else hide list
-      else {
-        typesOfgenre.innerHTML = "";
-        isListEmpty = true;
-      }
-    }
-
     function populateOptionsFromArray(array, parentElement) {
       array.forEach((item) => {
         const element = document.createElement("option");
