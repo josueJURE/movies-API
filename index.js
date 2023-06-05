@@ -68,16 +68,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     let isListEmpty = true;
 
-    function showDirectors() {
-      // if (section is empty) show list
-      if (isListEmpty) {
-        directorsNameListNoDuplicates.forEach((director) => {
-          const element = document.createElement("div");
-          element.innerHTML = director;
-          typesOfgenre.appendChild(element);
-        });
-        isListEmpty = false;
-      }
+  
 
       // else hide list
       else {
@@ -144,16 +135,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             element.addEventListener("mouseover", function (e) {
               console.log(e.nextSibling, e);
               targetElement = e.target;
+              console.log({directors: directors})
               elementToInsert.setAttribute("class", "movieInfo");
               elementToInsert.innerHTML = `
              
               <div class="textColor year">Year: ${movie.year}</div>
               <div class="textColor description">${movie.description}</div>
               <i class="fa fa-plus" aria-hidden="true"></i>
-              <button class="textColor">Add to watch list</button>
-            
-             
+              <button class="textColor">Add to watchlist</button>
               `;
+      
               targetElement.insertAdjacentElement("afterend", elementToInsert);
             });
 
