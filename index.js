@@ -1,3 +1,8 @@
+const screenWidth = window.innerWidth;
+console.log({screenWidth: screenWidth});
+
+
+
 const options = {
   method: "GET",
   headers: {
@@ -109,6 +114,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             let elementToInsert = document.createElement("div");
             let targetElement;
             const element = document.createElement("div");
+            element.classList.add("imageMovieWrapper");
             const img = document.createElement("img");
             img.addEventListener("click", function () {
               const tasks = getTasksFromLocalStorage();
@@ -124,17 +130,18 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             element.addEventListener("mouseover", function (e) {
               console.log(e.nextSibling, e);
               targetElement = e.target;
-              console.log({directors: directors})
+              console.log({ directors: directors });
               elementToInsert.setAttribute("class", "movieInfo");
               elementToInsert.innerHTML = `
-             
+              
               <div class="textColor year">Year: ${movie.year}</div>
               <div class="textColor description">${movie.description}</div>
               <i class="fa fa-plus" aria-hidden="true"></i>
               <button class="textColor">Add to watchlist</button>
               `;
-      
+
               targetElement.insertAdjacentElement("afterend", elementToInsert);
+              debugger;
             });
 
             element.addEventListener("mouseout", function () {
