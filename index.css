@@ -143,7 +143,14 @@ li {
   border-right: 26px solid #fff;
   border-bottom: 13px solid transparent;
   top: calc(50% -13px);
-  left: -26px;
+  left: -25px;
+}
+
+.movieInfo.displayBoxToTheLeft:before {
+  left: initial;
+  right: -25px;
+  border-right: initial;
+  border-left: 26px solid;
 }
 
 .topTenParentElement,
@@ -161,6 +168,13 @@ li {
   border-radius: 10px;
   column-gap: 15px;
   row-gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .directors
+   {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .typesOfgenre > div,
@@ -277,4 +291,8 @@ img:hover {
 
 .imageMovieWrapper {
   position: relative;
+}
+.displayBoxToTheLeft {
+  right: initial;
+  left: -400px;
 }

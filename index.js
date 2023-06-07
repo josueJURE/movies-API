@@ -1,8 +1,3 @@
-const screenWidth = window.innerWidth;
-console.log({screenWidth: screenWidth});
-
-
-
 const options = {
   method: "GET",
   headers: {
@@ -141,7 +136,13 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               `;
 
               targetElement.insertAdjacentElement("afterend", elementToInsert);
-              debugger;
+              const left = elementToInsert.getClientRects()[0].left;
+              const width = elementToInsert.getClientRects()[0].width;
+              const screenWidth = window.innerWidth;
+              if (left + width > screenWidth) {
+                elementToInsert.classList.add("displayBoxToTheLeft")
+                // debugger;
+              }
             });
 
             element.addEventListener("mouseout", function () {
