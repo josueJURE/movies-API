@@ -297,3 +297,7 @@ img:hover {
   right: initial;
   left: -400px;
 }
+
+option {
+  text-align: center;
+}
