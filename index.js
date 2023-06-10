@@ -127,14 +127,27 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               targetElement = e.target;
               console.log({ directors: directors });
               elementToInsert.setAttribute("class", "movieInfo");
-              elementToInsert.innerHTML = `
+              let moviePlot = `
               
               <div class="textColor year">Year: ${movie.year}</div>
               <div class="textColor description">${movie.description}</div>
               <i class="fa fa-plus" aria-hidden="true"></i>
-              <button class="textColor">Add to watchlist</button>
+              <button class="textColor btn">Add to watchlist</button>
               `;
 
+              const myFragment = document.createRange().createContextualFragment(moviePlot);
+
+              elementToInsert.appendChild(myFragment)
+
+              btn = elementToInsert.querySelector(".btn")
+              console.log(btn)
+              btn.addEventListener("click", function() {
+                console.log("add to watchList")
+              })
+
+           
+
+          
               targetElement.insertAdjacentElement("afterend", elementToInsert);
               const left = elementToInsert.getClientRects()[0].left;
               const width = elementToInsert.getClientRects()[0].width;
@@ -145,7 +158,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               }
             });
 
-            element.addEventListener("mouseout", function () {
+            element.addEventListener("mouseleave", function () {
               elementToInsert.remove();
             });
           });
