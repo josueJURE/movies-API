@@ -135,25 +135,22 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               <button class="textColor btn">Add to watchlist</button>
               `;
 
-              const myFragment = document.createRange().createContextualFragment(moviePlot);
+              const myFragment = turnStringIntoDOMelement(moviePlot)
 
-              elementToInsert.appendChild(myFragment)
+              elementToInsert.appendChild(myFragment);
 
-              btn = elementToInsert.querySelector(".btn")
-              console.log(btn)
-              btn.addEventListener("click", function() {
-                console.log("add to watchList")
-              })
+              btn = elementToInsert.querySelector(".btn");
+              console.log(btn);
+              btn.addEventListener("click", function () {
+                console.log("add to watchList");
+              });
 
-           
-
-          
               targetElement.insertAdjacentElement("afterend", elementToInsert);
               const left = elementToInsert.getClientRects()[0].left;
               const width = elementToInsert.getClientRects()[0].width;
               const screenWidth = window.innerWidth;
               if (left + width > screenWidth) {
-                elementToInsert.classList.add("displayBoxToTheLeft")
+                elementToInsert.classList.add("displayBoxToTheLeft");
                 // debugger;
               }
             });
@@ -299,3 +296,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     populateFields();
   });
+
+  function turnStringIntoDOMelement(string) {
+    return document
+    .createRange()
+    .createContextualFragment(string);
+  }
