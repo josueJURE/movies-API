@@ -98,7 +98,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
     }
 
-    function userMakesAselection2(e) {
+    
+function userMakesAselection2(e) {
       if (directors) {
         directors.innerHTML = "";
         const selectedGenre = e.target.value;
@@ -121,42 +122,43 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             // img.title = movie.description;
             element.appendChild(img);
             directors.appendChild(element);
-            console.log(element.firstElementChild)
-            console.log(element.children)
-          
-              element.addEventListener("mouseover", function (e) {
-                console.log(e.nextSibling, e);
-                elementToInsert.setAttribute("class", "movieInfo");
-                let moviePlot = `
+            console.log(element.firstElementChild);
+            console.log(element.children);
+
+            element.addEventListener("mouseover", function (e) {
+              console.log(e.nextSibling, e);
+              elementToInsert.setAttribute("class", "movieInfo");
+              let moviePlot = `
                 
                 <div class="textColor year">Year: ${movie.year}</div>
                 <div class="textColor description">${movie.description}</div>
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 <button class="textColor btn">Add to watchlist</button>
                 `;
-  
-                const myFragment = turnStringIntoDOMelement(moviePlot)
-  
+
+              if (elementToInsert.children.length === 0) {
+                const myFragment = turnStringIntoDOMelement(moviePlot);
                 elementToInsert.appendChild(myFragment);
-  
                 btn = elementToInsert.querySelector(".btn");
                 console.log(btn);
                 btn.addEventListener("click", function () {
                   console.log("add to watchList");
                 });
-  
-                element.firstElementChild.insertAdjacentElement("afterend", elementToInsert);
-                const left = elementToInsert.getClientRects()[0].left;
-                const width = elementToInsert.getClientRects()[0].width;
-                const screenWidth = window.innerWidth;
-                if (left + width > screenWidth) {
-                  elementToInsert.classList.add("displayBoxToTheLeft");
-                  // debugger;
-                }
-              });
-              
+              }
+
+              element.firstElementChild.insertAdjacentElement(
+                "afterend",
+                elementToInsert
+              );
+              const left = elementToInsert.getClientRects()[0].left;
+              const width = elementToInsert.getClientRects()[0].width;
+              const screenWidth = window.innerWidth;
+              if (left + width > screenWidth) {
+                elementToInsert.classList.add("displayBoxToTheLeft");
+                // debugger;
+              }
+            });
             // }
-    
 
             element.addEventListener("mouseleave", function () {
               elementToInsert.remove();
@@ -300,8 +302,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     populateFields();
   });
 
-  function turnStringIntoDOMelement(string) {
-    return document
-    .createRange()
-    .createContextualFragment(string);
-  }
+function turnStringIntoDOMelement(string) {
+  return document.createRange().createContextualFragment(string);
+}
