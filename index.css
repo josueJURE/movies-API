@@ -302,3 +302,12 @@ img:hover {
 option {
   text-align: center;
 }
+
+.a-regular {
+  background-color: red;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}

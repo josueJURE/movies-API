@@ -20,6 +20,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const rating = document.querySelector(".rating");
     const description = document.querySelector(".description");
     const typesOfgenre = document.querySelector(".typesOfgenre ");
+    const userMessage = document.querySelector(".userMessage");
 
     const selectByGenres = document.querySelector(".selectByGenres");
     const trailerButton = document.querySelector(".trailerButton");
@@ -124,8 +125,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
                 
                 <div class="textColor year">Year: ${movie.year}</div>
                 <div class="textColor description">${movie.description}</div>
-                <i class="fa fa-plus" aria-hidden="true"></i>
                 <button class="textColor btn">Add to watchlist</button>
+                <i class="fa-regular fa-heart"></i>
+                
+
                 `;
 
               if (elementToInsert.children.length === 0) {
@@ -138,6 +141,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
                   if (tasks.filter((task) => task.id == movie.id).length == 0) {
                     tasks.push(movie);
                     localStorage.setItem("tasks", JSON.stringify(tasks));
+                    console.log(userMessage)
+                    userMessage.innerHTML = `${movie.title} has been added to your watchlist`
+                    setTimeout(function () {
+                      userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
+                    }, 1000);
                   }
                 });
               }
