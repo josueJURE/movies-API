@@ -240,6 +240,7 @@ img:hover {
 
 .description {
   border-bottom: 1px black solid;
+  text-align: justify;
 }
 
 .trailerButton {
