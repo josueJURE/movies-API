@@ -98,8 +98,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
     }
 
-    
-function userMakesAselection2(e) {
+    function userMakesAselection2(e) {
       if (directors) {
         directors.innerHTML = "";
         const selectedGenre = e.target.value;
@@ -111,13 +110,6 @@ function userMakesAselection2(e) {
             const element = document.createElement("div");
             element.classList.add("imageMovieWrapper");
             const img = document.createElement("img");
-            img.addEventListener("click", function () {
-              const tasks = getTasksFromLocalStorage();
-              if (tasks.filter((task) => task.id == movie.id).length == 0) {
-                tasks.push(movie);
-                localStorage.setItem("tasks", JSON.stringify(tasks));
-              }
-            });
             img.src = movie.image;
             // img.title = movie.description;
             element.appendChild(img);
@@ -140,9 +132,13 @@ function userMakesAselection2(e) {
                 const myFragment = turnStringIntoDOMelement(moviePlot);
                 elementToInsert.appendChild(myFragment);
                 btn = elementToInsert.querySelector(".btn");
-                console.log(btn);
+
                 btn.addEventListener("click", function () {
-                  console.log("add to watchList");
+                  const tasks = getTasksFromLocalStorage();
+                  if (tasks.filter((task) => task.id == movie.id).length == 0) {
+                    tasks.push(movie);
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                  }
                 });
               }
 
