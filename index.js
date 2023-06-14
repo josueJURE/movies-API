@@ -13,7 +13,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => {
     const chevronRight = document.querySelector(".fa-chevron-right");
     const chevronLeft = document.querySelector(".fa-chevron-left");
-    const img = document.querySelector(".carousel img");
+    const carousel = document.querySelector(".carousel");
+    const img = document.createElement("img");
+    if (carousel) {
+      carousel.replaceChildren(img);
+    }
     const title = document.querySelector(".title");
     const director = document.querySelector(".director");
     const genre = document.querySelector(".genre");
@@ -141,8 +145,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
                   if (tasks.filter((task) => task.id == movie.id).length == 0) {
                     tasks.push(movie);
                     localStorage.setItem("tasks", JSON.stringify(tasks));
-                    console.log(userMessage)
-                    userMessage.innerHTML = `${movie.title} has been added to your watchlist`
+                    console.log(userMessage);
+                    userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
                     setTimeout(function () {
                       userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
                     }, 1000);
