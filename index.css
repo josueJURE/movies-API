@@ -68,11 +68,23 @@ ul {
   flex-wrap: nowrap;
 }
 
+@media only screen and (max-width: 600px) {
+  .homeSearchWatcList {
+    display: grid;
+  }
+
+}
+
 .homeSearchWatcList li {
   position: relative;
   display: flex;
   align-items: center;
 }
+
+
+
+
+
 
 .homeSearchWatcList li::after {
   content: "";
