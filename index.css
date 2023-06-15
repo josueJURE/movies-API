@@ -127,10 +127,8 @@ ul {
   flex: 1;
 }
 
-
-
 .movie > * {
-  flex: 1
+  flex: 1;
 }
 
 .movieInfo {
@@ -239,11 +237,9 @@ img:hover {
 .title {
   display: flex;
   justify-content: center;
-
 }
 
 .description {
-  border-bottom: 1px black solid;
   text-align: justify;
 }
 
