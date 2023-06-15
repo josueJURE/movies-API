@@ -112,6 +112,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           .forEach((movie) => {
             let elementToInsert = document.createElement("div");
             const element = document.createElement("div");
+      
             element.classList.add("imageMovieWrapper");
             img.src = movie.image;
             // img.title = movie.description;
@@ -260,7 +261,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     function populateFields() {
-      if (img) {
+      if (director) {
         img.src = response[counting].image;
         director.innerHTML = `Director: ${response[counting].director}`;
         genre.innerHTML = `Genre: ${response[counting].genre}`;
