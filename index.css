@@ -72,7 +72,13 @@ ul {
   .homeSearchWatcList {
     display: grid;
   }
+}
 
+@media only screen and (max-width: 600px) {
+  main {
+    margin-top: 300px;
+  }
+  
 }
 
 .homeSearchWatcList li {
@@ -80,11 +86,6 @@ ul {
   display: flex;
   align-items: center;
 }
-
-
-
-
-
 
 .homeSearchWatcList li::after {
   content: "";
