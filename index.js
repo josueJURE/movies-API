@@ -87,6 +87,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           .filter((res) => res.genre.includes(selectedGenre))
           .forEach((movie) => {
             const element = document.createElement("div");
+            const img = document.createElement("img");
             img.addEventListener("click", function () {
               const tasks = getTasksFromLocalStorage();
               if (tasks.filter((task) => task.id == movie.id).length == 0) {
@@ -112,7 +113,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           .forEach((movie) => {
             let elementToInsert = document.createElement("div");
             const element = document.createElement("div");
-      
+            const img = document.createElement("img");
             element.classList.add("imageMovieWrapper");
             img.src = movie.image;
             // img.title = movie.description;
