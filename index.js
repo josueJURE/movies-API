@@ -14,9 +14,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const chevronRight = document.querySelector(".fa-chevron-right");
     const chevronLeft = document.querySelector(".fa-chevron-left");
     const carousel = document.querySelector(".carousel");
-    const img = document.createElement("img");
+    const carouselImage = document.createElement("img");
     if (carousel) {
-      carousel.replaceChildren(img);
+      carousel.replaceChildren(carouselImage);
     }
     const title = document.querySelector(".title");
     const director = document.querySelector(".director");
@@ -263,7 +263,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     function populateFields() {
       if (director) {
-        img.src = response[counting].image;
+        carouselImage.src = response[counting].image;
         director.innerHTML = `Director: ${response[counting].director}`;
         genre.innerHTML = `Genre: ${response[counting].genre}`;
         rating.innerHTML = `Rating ${response[counting].rating}`;
