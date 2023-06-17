@@ -43,29 +43,31 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     console.log(response);
 
-    let directorsNameListWithDuplicates = [];
-    let genreListWithDuplicates = [];
+   
 
-    // can this be refactored into a funcion
-    response.forEach((item) => {
-      directorsNameListWithDuplicates.push(...item.director);
-    });
-
-    let directorsNameListNoDuplicates = [
-      ...new Set(directorsNameListWithDuplicates),
-    ].sort();
-
+  
+    function getUniqueValuesFromArray(response, key) {
+      const valuesWithDuplicates = [];
+      response.forEach((item) => {
+        valuesWithDuplicates.push(...item[key]);
+      });
+    
+      const uniqueValues = [...new Set(valuesWithDuplicates)].sort();
+    
+      return uniqueValues;
+    }
+    
+    // Usage
+    const directorsNameListNoDuplicates = getUniqueValuesFromArray(response, 'director');
     console.log(directorsNameListNoDuplicates);
-
-    response.forEach((item) => {
-      genreListWithDuplicates.push(...item.genre);
-    });
-
-    let genreListWithNoDuplicates = [
-      ...new Set(genreListWithDuplicates),
-    ].sort();
-
+    
+    const genreListWithNoDuplicates = getUniqueValuesFromArray(response, 'genre');
     console.log(genreListWithNoDuplicates);
+    
+
+  
+    
+ 
 
     if (topTenParentElement) {
       displayTopTenMovies();
