@@ -18,20 +18,17 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; 
 }
 
 @media only screen and (max-width: 600px) {
   .mainContainer {
     align-content: space-between;
-    
   }
 }
 
 @media only screen and (max-width: 600px) {
   .trailerButton {
     text-align: center;
-    
   }
 }
 
@@ -106,7 +103,7 @@ ul {
 
 @media only screen and (max-width: 600px) {
   main {
-    margin-top: 216px;
+    margin-top: 185px;
   }
 }
 
