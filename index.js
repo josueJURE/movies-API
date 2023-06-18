@@ -43,31 +43,29 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     console.log(response);
 
-   
-
-  
     function getUniqueValuesFromArray(response, key) {
       const valuesWithDuplicates = [];
       response.forEach((item) => {
         valuesWithDuplicates.push(...item[key]);
       });
-    
+
       const uniqueValues = [...new Set(valuesWithDuplicates)].sort();
-    
+
       return uniqueValues;
     }
-    
-    // Usage
-    const directorsNameListNoDuplicates = getUniqueValuesFromArray(response, 'director');
-    console.log(directorsNameListNoDuplicates);
-    
-    const genreListWithNoDuplicates = getUniqueValuesFromArray(response, 'genre');
-    console.log(genreListWithNoDuplicates);
-    
 
-  
-    
- 
+    // Usage
+    const directorsNameListNoDuplicates = getUniqueValuesFromArray(
+      response,
+      "director"
+    );
+    console.log(directorsNameListNoDuplicates);
+
+    const genreListWithNoDuplicates = getUniqueValuesFromArray(
+      response,
+      "genre"
+    );
+    console.log(genreListWithNoDuplicates);
 
     if (topTenParentElement) {
       displayTopTenMovies();

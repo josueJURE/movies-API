@@ -310,6 +310,12 @@ img:hover {
   flex-direction: column;
 }
 
+@media only screen and (max-width: 600px) {
+  .filmInfo {
+    display: none;
+  }
+}
+
 .textColor {
   color: black;
 }
@@ -317,6 +323,12 @@ img:hover {
 .year,
 .description {
   margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .description {
+    display: none;
+  }
 }
 
 .bubbleSpeech {
