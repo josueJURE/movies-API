@@ -18,6 +18,21 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap; 
+}
+
+@media only screen and (max-width: 600px) {
+  .mainContainer {
+    align-content: space-between;
+    
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .trailerButton {
+    text-align: center;
+    
+  }
 }
 
 nav {
@@ -76,9 +91,9 @@ ul {
   margin-top: 0;
 }
 
-.homeSearchWatcList {
+/* .homeSearchWatcList {
   flex-wrap: nowrap;
-}
+} */
 
 @media only screen and (max-width: 600px) {
   .homeSearchWatcList {
@@ -310,12 +325,6 @@ img:hover {
   flex-direction: column;
 }
 
-@media only screen and (max-width: 600px) {
-  .filmInfo {
-    display: none;
-  }
-}
-
 .textColor {
   color: black;
 }
@@ -326,7 +335,8 @@ img:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  .description {
+  .description,
+  .filmInfo {
     display: none;
   }
 }
