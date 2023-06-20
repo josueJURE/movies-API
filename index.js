@@ -144,6 +144,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
                 elementToInsert.classList.add("displayBoxToTheLeft");
                 // debugger;
               }
+
+              element.addEventListener("mouseleave", function () {
+                elementToInsert.remove();
+              });
             })
           });
       }
