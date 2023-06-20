@@ -86,6 +86,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         response
           .filter((res) => res.genre.includes(selectedGenre))
           .forEach((movie) => {
+            let elementToInsert = document.createElement("div");
             const element = document.createElement("div");
             const img = document.createElement("img");
             img.addEventListener("click", function () {
@@ -99,6 +100,51 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             img.title = movie.description;
             element.appendChild(img);
             typesOfgenre.appendChild(element);
+
+            element.addEventListener("mouseover", function (e) {
+              console.log(e.nextSibling, e);
+              elementToInsert.setAttribute("class", "movieInfo");
+              let moviePlot = `
+                
+                <div class="textColor year">Year: ${movie.year}</div>
+                <div class="textColor description">${movie.description}</div>
+                <button class="textColor btn">Add to watchlist</button>
+                <i class="fa-regular fa-heart"></i>
+                
+
+                `;
+
+              if (elementToInsert.children.length === 0) {
+                const myFragment = turnStringIntoDOMelement(moviePlot);
+                elementToInsert.appendChild(myFragment);
+                btn = elementToInsert.querySelector(".btn");
+
+                btn.addEventListener("click", function () {
+                  const tasks = getTasksFromLocalStorage();
+                  if (tasks.filter((task) => task.id == movie.id).length == 0) {
+                    tasks.push(movie);
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                    console.log(userMessage);
+                    userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
+                    setTimeout(function () {
+                      userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
+                    }, 1000);
+                  }
+                });
+              }
+
+              element.firstElementChild.insertAdjacentElement(
+                "afterend",
+                elementToInsert
+              );
+              const left = elementToInsert.getClientRects()[0].left;
+              const width = elementToInsert.getClientRects()[0].width;
+              const screenWidth = window.innerWidth;
+              if (left + width > screenWidth) {
+                elementToInsert.classList.add("displayBoxToTheLeft");
+                // debugger;
+              }
+            })
           });
       }
     }
@@ -119,9 +165,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             // img.title = movie.description;
             element.appendChild(img);
             directors.appendChild(element);
-            console.log(element.firstElementChild);
-            console.log(element.children);
-
+    
             element.addEventListener("mouseover", function (e) {
               console.log(e.nextSibling, e);
               elementToInsert.setAttribute("class", "movieInfo");
