@@ -310,7 +310,10 @@ img:hover {
 .selectByDirectors,
 .selectByGenres {
   color: black;
+  width: fit-content;
 }
+
+
 
 .moviesBy {
   text-align: center;

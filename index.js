@@ -79,6 +79,79 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       });
     }
 
+    // codebar 21/06/23 code below throws error
+
+    // userMakesAselection(e, directors, director);
+    // userMakesAselection(e, typesOfgenre, genre);
+
+    // function userMakesAselection(x, param1, param2) {
+    //   if (param1) {
+    //     param1.innerHTML = "";
+    //     const selectedGenre = x.target.value;
+    //     moviesBy.innerHTML = `movies by ${selectedGenre}`;
+    //     response
+    //       .filter((res) => res[param2].includes(selectedGenre))
+    //       .forEach((movie) => {
+    //         let elementToInsert = document.createElement("div");
+    //         const element = document.createElement("div");
+    //         const img = document.createElement("img");
+    //         element.classList.add("imageMovieWrapper");
+    //         img.src = movie.image;
+    //         // img.title = movie.description;
+    //         element.appendChild(img);
+    //         directors.appendChild(element);
+
+    //         element.addEventListener("mouseover", function () {
+    //           elementToInsert.setAttribute("class", "movieInfo");
+    //           let moviePlot = `
+
+    //               <div class="textColor year">Year: ${movie.year}</div>
+    //               <div class="textColor description">${movie.description}</div>
+    //               <button class="textColor btn">Add to watchlist</button>
+    //               <i class="fa-regular fa-heart"></i>
+
+    //               `;
+
+    //           if (elementToInsert.children.length === 0) {
+    //             const myFragment = turnStringIntoDOMelement(moviePlot);
+    //             elementToInsert.appendChild(myFragment);
+    //             btn = elementToInsert.querySelector(".btn");
+
+    //             btn.addEventListener("click", function () {
+    //               const tasks = getTasksFromLocalStorage();
+    //               if (tasks.filter((task) => task.id == movie.id).length == 0) {
+    //                 tasks.push(movie);
+    //                 localStorage.setItem("tasks", JSON.stringify(tasks));
+    //                 console.log(userMessage);
+    //                 userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
+    //                 setTimeout(function () {
+    //                   userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
+    //                 }, 1000);
+    //               }
+    //             });
+    //           }
+
+    //           element.firstElementChild.insertAdjacentElement(
+    //             "afterend",
+    //             elementToInsert
+    //           );
+    //           const left = elementToInsert.getClientRects()[0].left;
+    //           const width = elementToInsert.getClientRects()[0].width;
+    //           const screenWidth = window.innerWidth;
+    //           if (left + width > screenWidth) {
+    //             elementToInsert.classList.add("displayBoxToTheLeft");
+    //             // debugger;
+    //           }
+    //         });
+    //         // }
+
+    //         element.addEventListener("mouseleave", function () {
+    //           elementToInsert.remove();
+    //         });
+    //       });
+    //   }
+    // }
+
     function userMakesAselection(e) {
       if (typesOfgenre) {
         typesOfgenre.innerHTML = "";
@@ -105,12 +178,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               console.log(e.nextSibling, e);
               elementToInsert.setAttribute("class", "movieInfo");
               let moviePlot = `
-                
+
                 <div class="textColor year">Year: ${movie.year}</div>
                 <div class="textColor description">${movie.description}</div>
                 <button class="textColor btn">Add to watchlist</button>
                 <i class="fa-regular fa-heart"></i>
-                
 
                 `;
 
@@ -148,7 +220,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
               element.addEventListener("mouseleave", function () {
                 elementToInsert.remove();
               });
-            })
+            });
           });
       }
     }
@@ -169,17 +241,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             // img.title = movie.description;
             element.appendChild(img);
             directors.appendChild(element);
-    
+
             element.addEventListener("mouseover", function (e) {
               console.log(e.nextSibling, e);
               elementToInsert.setAttribute("class", "movieInfo");
               let moviePlot = `
-                
+
                 <div class="textColor year">Year: ${movie.year}</div>
                 <div class="textColor description">${movie.description}</div>
                 <button class="textColor btn">Add to watchlist</button>
                 <i class="fa-regular fa-heart"></i>
-                
 
                 `;
 
@@ -225,17 +296,108 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     if (userWatchlistParentElement) {
       addMovieToUserWatchList();
+      // addMovieToUserWatchList();
+      // const watcthlistArray = Array.from(userWatchlistParentElement.children);
+      // console.log(userWatchlistParentElement.children);
+      // watcthlistArray.forEach((movie) => {
+      //   console.log(movie);
+      //   const elementToInsert = document.createElement("div");
+      //   movie.addEventListener("mouseover", function() {
+      //     elementToInsert.setAttribute("class", "movieInfo");
+      //     let moviePlot = `
+  
+      //     <div class="textColor year">Year: ${movie.year}</div>
+      //     <div class="textColor description">${movie.description}</div>
+      //     <button class="textColor btn">Add to watchlist</button>
+      //     <i class="fa-regular fa-heart"></i>
+  
+      //     `;
+  
+      //     if (elementToInsert.children.length === 0) {
+      //       const myFragment = turnStringIntoDOMelement(moviePlot);
+      //       elementToInsert.appendChild(myFragment);
+      //       btn = elementToInsert.querySelector(".btn");
+  
+      //     }
+  
+      //     movie.firstElementChild.insertAdjacentElement(
+      //       "afterend",
+      //       elementToInsert
+      //     );
+      //     const left = elementToInsert.getClientRects()[0].left;
+      //     const width = elementToInsert.getClientRects()[0].width;
+      //     const screenWidth = window.innerWidth;
+      //     if (left + width > screenWidth) {
+      //       elementToInsert.classList.add("displayBoxToTheLeft");
+      //       // debugger;
+      //     }
+
+      //   })
+   
+      //   movie.addEventListener("mouseleave", function () {
+      //     elementToInsert.remove();
+      //   });
+      // });
+     
     }
 
     function addMovieToUserWatchList() {
       const tasks = getTasksFromLocalStorage();
-      tasks.forEach((task) => {
+      tasks.forEach((movie) => {
+        let elementToInsert = document.createElement("div");
         const element = document.createElement("div");
+        element.classList.add("imageMovieWrapper");
         const img = document.createElement("img");
-        img.src = task.image;
-        img.title = task.description;
+        img.src = movie.image;
+        // img.title = task.description;
         element.appendChild(img);
         userWatchlistParentElement.appendChild(element);
+        element.addEventListener("mouseover", function (e) {
+          console.log(e.nextSibling, e);
+          elementToInsert.setAttribute("class", "movieInfo");
+          let moviePlot = `
+
+            <div class="textColor year">Year: ${movie.year}</div>
+            <div class="textColor description">${movie.description}</div>
+            <button class="textColor btn">Add to watchlist</button>
+            <i class="fa-regular fa-heart"></i>
+
+            `;
+
+          if (elementToInsert.children.length === 0) {
+            const myFragment = turnStringIntoDOMelement(moviePlot);
+            elementToInsert.appendChild(myFragment);
+            btn = elementToInsert.querySelector(".btn");
+
+            btn.addEventListener("click", function () {
+              const tasks = getTasksFromLocalStorage();
+              if (tasks.filter((task) => task.id == movie.id).length == 0) {
+                tasks.push(movie);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+                console.log(userMessage);
+                userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
+                setTimeout(function () {
+                  userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
+                }, 1000);
+              }
+            });
+          }
+
+          element.firstElementChild.insertAdjacentElement(
+            "afterend",
+            elementToInsert
+          );
+          const left = elementToInsert.getClientRects()[0].left;
+          const width = elementToInsert.getClientRects()[0].width;
+          const screenWidth = window.innerWidth;
+          if (left + width > screenWidth) {
+            elementToInsert.classList.add("displayBoxToTheLeft");
+            // debugger;
+          }
+        });
+        element.addEventListener("mouseleave", function () {
+          elementToInsert.remove();
+        });
       });
     }
 
