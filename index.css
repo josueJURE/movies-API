@@ -313,8 +313,6 @@ img:hover {
   width: fit-content;
 }
 
-
-
 .moviesBy {
   text-align: center;
   color: white;
@@ -340,6 +338,14 @@ img:hover {
     display: none;
   }
 }
+
+.fa-heart {
+  height: 100px;
+  width: 300px;
+  z-index: 101;
+}
+
+
 
 .bubbleSpeech {
   display: grid;
