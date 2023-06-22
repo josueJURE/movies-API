@@ -39,7 +39,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const directors = document.querySelector(".directors");
     const topTen = document.querySelector(".topTen");
     const topTenParentElement = document.querySelector(".topTenParentElement");
-    const moviesBy = document.querySelector(".moviesBy");
+    // const moviesBy = document.querySelector(".moviesBy");
 
     console.log(response);
 
@@ -80,125 +80,84 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     function userMakesAselection(e) {
+      const selectedGenre = e.target.value;
+      // moviesBy.innerHTML = `movies by ${selectedGenre}`;
+      let targetElement, filterKey;
+    
       if (directors) {
-        directors.innerHTML = "";
-        const selectedGenre = e.target.value;
-        moviesBy.innerHTML = `movies by ${selectedGenre}`;
-        response
-          .filter((res) => res.director.includes(selectedGenre))
-          .forEach((movie) => {
-            let elementToInsert = document.createElement("div");
-            const element = document.createElement("div");
-            const img = document.createElement("img");
-            element.classList.add("imageMovieWrapper");
-            img.src = movie.image;
-            element.appendChild(img);
-            directors.appendChild(element);
-
-            element.addEventListener("mouseover", function () {
-              elementToInsert.setAttribute("class", "movieInfo");
-              let moviePlot = generateInfoAboutMovie(movie.year, movie.description);
-
-              if (elementToInsert.children.length === 0) {
-                const myFragment = turnStringIntoDOMelement(moviePlot);
-                elementToInsert.appendChild(myFragment);
-                btn = elementToInsert.querySelector(".btn");
-
-                btn.addEventListener("mouseover", function () {
-                  const tasks = getTasksFromLocalStorage();
-                  if (tasks.filter((task) => task.id == movie.id).length == 0) {
-                    tasks.push(movie);
-                    localStorage.setItem("tasks", JSON.stringify(tasks));
-                    console.log(userMessage);
-                    userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
-                    setTimeout(function () {
-                      userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
-                    }, 1000);
-                  }
-                });
-              }
-
-              element.firstElementChild.insertAdjacentElement(
-                "afterend",
-                elementToInsert
-              );
-              const left = elementToInsert.getClientRects()[0].left;
-              const width = elementToInsert.getClientRects()[0].width;
-              const screenWidth = window.innerWidth;
-              if (left + width > screenWidth) {
-                elementToInsert.classList.add("displayBoxToTheLeft");
-                // debugger;
-              }
-            });
-
+        targetElement = directors;
+        filterKey = "director";
+      } else if (typesOfgenre) {
+        targetElement = typesOfgenre;
+        filterKey = "genre";
+      } else {
+        return;
+      }
+    
+      targetElement.innerHTML = "";
+    
+      response
+        .filter((res) => res[filterKey].includes(selectedGenre))
+        .forEach((movie) => {
+          let elementToInsert = document.createElement("div");
+          const element = document.createElement("div");
+          const img = document.createElement("img");
+          img.src = movie.image;
+          element.classList.add("imageMovieWrapper");
+          element.appendChild(img);
+          targetElement.appendChild(element);
+    
+          element.addEventListener("mouseover", function () {
+            elementToInsert.setAttribute("class", "movieInfo");
+            let moviePlot = generateInfoAboutMovie(movie.year, movie.description);
+    
+            if (elementToInsert.children.length === 0) {
+              const myFragment = turnStringIntoDOMelement(moviePlot);
+              elementToInsert.appendChild(myFragment);
+              btn = elementToInsert.querySelector(".btn");
+    
+              btn.addEventListener("click", function () {
+                const tasks = getTasksFromLocalStorage();
+                if (tasks.filter((task) => task.id == movie.id).length == 0) {
+                  tasks.push(movie);
+                  localStorage.setItem("tasks", JSON.stringify(tasks));
+                  console.log(userMessage);
+                  userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
+                  setTimeout(function () {
+                    userMessage.classList.add("fade-out");
+                  }, 1000);
+                }
+              });
+            }
+    
+            element.firstElementChild.insertAdjacentElement(
+              "afterend",
+              elementToInsert
+            );
+    
+            const left = elementToInsert.getClientRects()[0].left;
+            const width = elementToInsert.getClientRects()[0].width;
+            const screenWidth = window.innerWidth;
+    
+            if (left + width > screenWidth) {
+              elementToInsert.classList.add("displayBoxToTheLeft");
+            }
+    
             element.addEventListener("mouseleave", function () {
               elementToInsert.remove();
             });
           });
-      } else if (typesOfgenre) {
-        typesOfgenre.innerHTML = "";
-        const selectedGenre = e.target.value;
-        response
-          .filter((res) => res.genre.includes(selectedGenre))
-          .forEach((movie) => {
-            let elementToInsert = document.createElement("div");
-            const element = document.createElement("div");
-            const img = document.createElement("img");
-            img.addEventListener("click", function () {
-              const tasks = getTasksFromLocalStorage();
-              if (tasks.filter((task) => task.id == movie.id).length == 0) {
-                tasks.push(movie);
-                localStorage.setItem("tasks", JSON.stringify(tasks));
-              }
-            });
-            img.src = movie.image;
-            img.title = movie.description;
-            element.appendChild(img);
-            typesOfgenre.appendChild(element);
-
-            element.addEventListener("mouseover", function () {
-              elementToInsert.setAttribute("class", "movieInfo");
-              let moviePlot = generateInfoAboutMovie(movie.year, movie.description
-              );
-
-              if (elementToInsert.children.length === 0) {
-                const myFragment = turnStringIntoDOMelement(moviePlot);
-                elementToInsert.appendChild(myFragment);
-                btn = elementToInsert.querySelector(".btn");
-
-                btn.addEventListener("click", function () {
-                  const tasks = getTasksFromLocalStorage();
-                  if (tasks.filter((task) => task.id == movie.id).length == 0) {
-                    tasks.push(movie);
-                    localStorage.setItem("tasks", JSON.stringify(tasks));
-                    console.log(userMessage);
-                    userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
-                    setTimeout(function () {
-                      userMessage.classList.add("fade-out"); // Apply the fade-out class after 1 second
-                    }, 1000);
-                  }
-                });
-              }
-
-              element.firstElementChild.insertAdjacentElement(
-                "afterend",
-                elementToInsert
-              );
-              const left = elementToInsert.getClientRects()[0].left;
-              const width = elementToInsert.getClientRects()[0].width;
-              const screenWidth = window.innerWidth;
-              if (left + width > screenWidth) {
-                elementToInsert.classList.add("displayBoxToTheLeft");
-                // debugger;
-              }
-
-              element.addEventListener("mouseleave", function () {
-                elementToInsert.remove();
-              });
-            });
-          });
-      }
+        });
     }
+    
+
+ 
+ 
+  
+
+  
+
+
 
     if (userWatchlistParentElement) {
       addMovieToUserWatchList();
