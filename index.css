@@ -345,8 +345,6 @@ img:hover {
   z-index: 101;
 }
 
-
-
 .bubbleSpeech {
   display: grid;
   justify-content: space-around;
@@ -355,6 +353,10 @@ img:hover {
 .imageMovieWrapper {
   position: relative;
 }
+.typesOfgenre .imageMovieWrapper {
+  position: unset;
+}
+
 .displayBoxToTheLeft {
   right: initial;
   left: -400px;
