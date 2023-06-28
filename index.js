@@ -83,7 +83,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       const selectedGenre = e.target.value;
       // moviesBy.innerHTML = `movies by ${selectedGenre}`;
       let targetElement, filterKey;
-    
+
       if (directors) {
         targetElement = directors;
         filterKey = "director";
@@ -93,9 +93,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       } else {
         return;
       }
-    
+
       targetElement.innerHTML = "";
-    
+
       response
         .filter((res) => res[filterKey].includes(selectedGenre))
         .forEach((movie) => {
@@ -106,16 +106,19 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           element.classList.add("imageMovieWrapper");
           element.appendChild(img);
           targetElement.appendChild(element);
-    
+
           element.addEventListener("mouseover", function () {
             elementToInsert.setAttribute("class", "movieInfo");
-            let moviePlot = generateInfoAboutMovie(movie.year, movie.description);
-    
+            let moviePlot = generateInfoAboutMovie(
+              movie.year,
+              movie.description
+            );
+
             if (elementToInsert.children.length === 0) {
               const myFragment = turnStringIntoDOMelement(moviePlot);
               elementToInsert.appendChild(myFragment);
               btn = elementToInsert.querySelector(".btn");
-    
+
               btn.addEventListener("click", function () {
                 const tasks = getTasksFromLocalStorage();
                 if (tasks.filter((task) => task.id == movie.id).length == 0) {
@@ -129,35 +132,26 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
                 }
               });
             }
-    
+
             element.firstElementChild.insertAdjacentElement(
               "afterend",
               elementToInsert
             );
-    
+
             const left = elementToInsert.getClientRects()[0].left;
             const width = elementToInsert.getClientRects()[0].width;
             const screenWidth = window.innerWidth;
-    
+
             if (left + width > screenWidth) {
               elementToInsert.classList.add("displayBoxToTheLeft");
             }
-    
+
             element.addEventListener("mouseleave", function () {
               elementToInsert.remove();
             });
           });
         });
     }
-    
-
- 
- 
-  
-
-  
-
-
 
     if (userWatchlistParentElement) {
       addMovieToUserWatchList();
@@ -183,7 +177,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             <div class="textColor description">${movie.description}</div>
             <button class="textColor btn">Add to watchlist</button>
             <i class="fa-regular fa-plus"></i>
-            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+           
 
             `;
 
