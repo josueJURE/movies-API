@@ -88,10 +88,6 @@ ul {
   margin-top: 0;
 }
 
-/* .homeSearchWatcList {
-  flex-wrap: nowrap;
-} */
-
 @media only screen and (max-width: 600px) {
   .homeSearchWatcList {
     display: grid;
@@ -119,7 +115,7 @@ ul {
   bottom: -2px; /* Adjust this value to control the distance of the line from the bottom of the li element */
   left: 0;
   right: 0;
-  height: 3.5px; /* Adjust this value to control the thickness of the line */
+  height: 0.5px; /* Adjust this value to control the thickness of the line */
   background-color: #fff; /* Adjust this value to control the color of the line */
   opacity: 0; /* Initially hide the line */
   transition: opacity 0.3s ease-in; /* Add a transition effect for smooth appearance */
@@ -207,14 +203,13 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 0.25fr));
   align-items: center;
-  margin-top: 175px;
+  margin-top: 200px;
   margin-left: 50%;
   transform: translate(-50%, -10%);
   width: 90%;
   height: 250px;
   border-radius: 10px;
-  column-gap: 15px;
-  row-gap: 15px;
+  gap: 15px;
 }
 
 .typesOfgenre > div,
