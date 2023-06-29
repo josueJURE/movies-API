@@ -39,7 +39,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const directors = document.querySelector(".directors");
     const topTen = document.querySelector(".topTen");
     const topTenParentElement = document.querySelector(".topTenParentElement");
-    // const moviesBy = document.querySelector(".moviesBy");
+    const moviesBy = document.querySelector(".moviesBy");
 
     console.log(response);
 
@@ -81,11 +81,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     function userMakesAselection(e) {
       const selectedGenre = e.target.value;
-      // moviesBy.innerHTML = `movies by ${selectedGenre}`;
       let targetElement, filterKey;
 
-      if (directors) {
+      if (directors && moviesBy) {
         targetElement = directors;
+        moviesBy.innerHTML = `movies by ${selectedGenre}`;
         filterKey = "director";
       } else if (typesOfgenre) {
         targetElement = typesOfgenre;
