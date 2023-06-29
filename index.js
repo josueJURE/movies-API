@@ -59,13 +59,13 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       response,
       "director"
     );
-    console.log(directorsNameListNoDuplicates);
+
 
     const genreListWithNoDuplicates = getUniqueValuesFromArray(
       response,
       "genre"
     );
-    console.log(genreListWithNoDuplicates);
+
 
     if (topTenParentElement) {
       displayTopTenMovies();
