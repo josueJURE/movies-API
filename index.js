@@ -106,6 +106,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           element.classList.add("imageMovieWrapper");
           element.appendChild(img);
           targetElement.appendChild(element);
+          console.log(targetElement)
 
           element.addEventListener("mouseover", function () {
             elementToInsert.setAttribute("class", "movieInfo");
@@ -134,7 +135,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             }
 
             element.firstElementChild.insertAdjacentElement(
-              "afterend",
+              "beforebegin",
               elementToInsert
             );
 
@@ -165,7 +166,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         element.classList.add("imageMovieWrapper");
         const img = document.createElement("img");
         img.src = movie.image;
-        // img.title = task.description;
         element.appendChild(img);
         userWatchlistParentElement.appendChild(element);
         element.addEventListener("mouseover", function (e) {
@@ -326,11 +326,61 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     function displayTopTenMovies() {
       response.splice(0, 10).forEach((movie) => {
+        let elementToInsert = document.createElement("div");
         const element = document.createElement("div");
         const img = document.createElement("img");
         img.src = movie.image;
+        element.classList.add("imageMovieWrapper");
         element.appendChild(img);
         topTenParentElement.appendChild(element);
+        console.log(topTenParentElement)
+
+        element.addEventListener("mouseover", function () {
+          elementToInsert.setAttribute("class", "movieInfo");
+          let moviePlot = generateInfoAboutMovie(
+            movie.year,
+            movie.description
+          );
+
+          if (elementToInsert.children.length === 0) {
+            const myFragment = turnStringIntoDOMelement(moviePlot);
+            elementToInsert.appendChild(myFragment);
+            btn = elementToInsert.querySelector(".btn");
+
+            btn.addEventListener("click", function () {
+              const tasks = getTasksFromLocalStorage();
+              if (tasks.filter((task) => task.id == movie.id).length == 0) {
+                tasks.push(movie);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+                console.log(userMessage);
+                userMessage.innerHTML = `${movie.title} has been added to your watchlist`;
+                setTimeout(function () {
+                  userMessage.classList.add("fade-out");
+                }, 1000);
+              }
+            });
+          }
+
+          element.firstElementChild.insertAdjacentElement(
+            "beforebegin",
+            elementToInsert
+          );
+
+          const left = elementToInsert.getClientRects()[0].left;
+          const width = elementToInsert.getClientRects()[0].width;
+          const screenWidth = window.innerWidth;
+
+          if (left + width > screenWidth) {
+            elementToInsert.classList.add("displayBoxToTheLeft");
+          }
+
+          element.addEventListener("mouseleave", function () {
+            elementToInsert.remove();
+          });
+        });
+
+
+
       });
     }
 
