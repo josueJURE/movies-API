@@ -258,7 +258,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     if (topTen) {
       topTen.addEventListener("click", function () {
         window.location.assign("/topTen.html");
-        console.log("topTen");
       });
     }
 
