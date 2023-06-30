@@ -60,12 +60,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       "director"
     );
 
-
     const genreListWithNoDuplicates = getUniqueValuesFromArray(
       response,
       "genre"
     );
-
 
     if (topTenParentElement) {
       displayTopTenMovies();
@@ -106,7 +104,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           element.classList.add("imageMovieWrapper");
           element.appendChild(img);
           targetElement.appendChild(element);
-          console.log(targetElement)
+          console.log(targetElement);
 
           element.addEventListener("mouseover", function () {
             elementToInsert.setAttribute("class", "movieInfo");
@@ -169,7 +167,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         element.appendChild(img);
         userWatchlistParentElement.appendChild(element);
         element.addEventListener("mouseover", function (e) {
-          console.log(e.nextSibling, e);
           elementToInsert.setAttribute("class", "movieInfo");
           let moviePlot = `
 
@@ -202,7 +199,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
           }
 
           element.firstElementChild.insertAdjacentElement(
-            "afterend",
+            "beforebegin",
             elementToInsert
           );
           const left = elementToInsert.getClientRects()[0].left;
@@ -333,14 +330,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         element.classList.add("imageMovieWrapper");
         element.appendChild(img);
         topTenParentElement.appendChild(element);
-        console.log(topTenParentElement)
+        console.log(topTenParentElement);
 
         element.addEventListener("mouseover", function () {
           elementToInsert.setAttribute("class", "movieInfo");
-          let moviePlot = generateInfoAboutMovie(
-            movie.year,
-            movie.description
-          );
+          let moviePlot = generateInfoAboutMovie(movie.year, movie.description);
 
           if (elementToInsert.children.length === 0) {
             const myFragment = turnStringIntoDOMelement(moviePlot);
@@ -378,9 +372,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
             elementToInsert.remove();
           });
         });
-
-
-
       });
     }
 
