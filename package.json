@@ -12,5 +12,6 @@
   "homepage": "https://github.com/josueJURE/movies-API#readme",
   "dependencies": {
     "sweetalert2": "^11.7.5"
-  }
-}
+  },
+  "type": "module"
+} 
