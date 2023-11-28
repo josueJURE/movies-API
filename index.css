@@ -38,7 +38,7 @@ nav {
   justify-content: space-between;
   position: relative;
   width: 100%;
-  height: 30px;
+  height: fit-content;
   border: none;
   border-bottom: 3px solid #fff;
   background-color: black;
@@ -382,6 +382,7 @@ option {
 @media (max-width: 900px) {
   .movie {
     flex-direction: column;
+    row-gap: 30px;
   }
   .filmInfo {
     text-align: center;
