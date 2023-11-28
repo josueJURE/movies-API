@@ -147,6 +147,7 @@ ul {
 }
 
 .carousel {
+  width: 400px;
   position: relative;
   height: fit-content;
   border: 1px black solid;
@@ -311,6 +312,7 @@ img:hover {
   .moviesBy {
     display: none;
   }
+ 
 }
 
 .filmInfo {
@@ -331,9 +333,11 @@ img:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  .carousel
   .description,
   .filmInfo {
-    display: none;
+    flex-direction: column;
+    flex-grow: 2;
   }
 }
 
@@ -372,3 +376,19 @@ option {
   opacity: 0;
   transition: opacity 1s ease-in;
 }
+
+/* responsiveness begins*/
+
+@media (max-width: 900px) {
+  .movie {
+    flex-direction: column;
+  }
+  .filmInfo {
+    text-align: center;
+  }
+
+}
+
+
+
+/* responsiveness ends*/
