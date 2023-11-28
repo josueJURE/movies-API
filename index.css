@@ -44,7 +44,7 @@ nav {
   background-color: black;
   color: #fff;
 }
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   nav {
     position: relative;
     display: flex;
@@ -316,6 +316,8 @@ img:hover {
 .filmInfo {
   display: flex;
   flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .textColor {
@@ -324,7 +326,8 @@ img:hover {
 
 .year,
 .description {
-  margin-bottom: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 @media only screen and (max-width: 600px) {

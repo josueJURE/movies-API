@@ -182,7 +182,6 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     function populateFields() {
       if (director) {
         carouselImage.src = response[counting].image;
-        director.innerHTML = `Director: ${response[counting].director}`;
         genre.innerHTML = `Genre: ${response[counting].genre}`;
         rating.innerHTML = `Rating ${response[counting].rating}`;
         title.innerHTML = response[counting].title;
