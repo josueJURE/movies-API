@@ -43,10 +43,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     function getUniqueValuesFromArray(response, key) {
       const valuesWithDuplicates = [];
       response.forEach((item) => {
-        console.log(response);
+       
 
         item[key] && valuesWithDuplicates.push(...item[key]);
       });
+      console.log(response);
 
       const uniqueValues = [...new Set(valuesWithDuplicates)].sort();
 
@@ -182,7 +183,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     function populateFields() {
       if (director) {
         carouselImage.src = response[counting].image;
-        genre.innerHTML = `Genre: ${response[counting].genre}`;
+        genre.innerHTML = `Genre: ${response[counting].genre.join(', ') }`;
         rating.innerHTML = `Rating ${response[counting].rating}`;
         title.innerHTML = response[counting].title;
         description.innerHTML = response[counting].description;
