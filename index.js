@@ -12,7 +12,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => response.json())
   .then((response) => {
     const chevronRight = document.querySelector(".next");
-    const chevronLeft = document.querySelector(".prev");
+    const prev = document.querySelector(".prev");
     const carousel = document.querySelector(".carousel");
     const carouselImage = document.createElement("img");
     if (carousel) {
@@ -116,8 +116,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     if (chevronRight) {
       chevronRight.addEventListener("click", swipeRight);
     }
-    if (chevronLeft) {
-      chevronLeft.addEventListener("click", swipeLeft);
+    if (prev) {
+      prev.addEventListener("click", swipeLeft);
     }
 
     if (searchByGenre) {
