@@ -162,10 +162,10 @@ ul {
   width: 25%;
 }
 
-.profileSection:hover {
+/* .profileSection:hover {
   height: 250px;
   border: 1px black solid;
-}
+} */
 
 .picture {
   height: 28px;
