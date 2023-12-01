@@ -18,7 +18,7 @@ font-family: 'Onest', sans-serif;
 
 :root {
   --primary-color:#171b26;
-  --secondary-color: #29a587;
+  --secondary-color: black;
   --tertiary-color: #fff;
 }
 
@@ -421,3 +421,21 @@ option {
 
 
 /* responsiveness ends*/
+
+
+/* Element begins */
+
+footer {
+  height: 30px;
+  border-top: 3px solid var(--tertiary-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--tertiary-color);
+  background-color: var(--secondary-color);
+
+}
+
+
+/* Element ends */
