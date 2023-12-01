@@ -117,13 +117,14 @@ ul {
   .imageContainer {
     padding-top: 10px;
   }
-}
-
-@media only screen and (max-width: 600px) {
   main {
-    margin-top: 25px;
+    margin-top: 5px;
   }
 }
+
+/* @media only screen and (max-width: 600px) {
+
+} */
 
 .homeSearchWatcList li {
   position: relative;
