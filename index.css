@@ -114,6 +114,9 @@ ul {
     padding-bottom: 10px;
 
   }
+  .imageContainer {
+    padding-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
