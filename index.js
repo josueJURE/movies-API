@@ -11,7 +11,7 @@ const DEBUG = true;
 fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
   .then((response) => response.json())
   .then((response) => {
-    const chevronRight = document.querySelector(".next");
+    const next = document.querySelector(".next");
     const prev = document.querySelector(".prev");
     const carousel = document.querySelector(".carousel");
     const carouselImage = document.createElement("img");
@@ -113,8 +113,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
     let counting = 0;
 
-    if (chevronRight) {
-      chevronRight.addEventListener("click", swipeRight);
+    if (next) {
+      next.addEventListener("click", swipeRight);
     }
     if (prev) {
       prev.addEventListener("click", swipeLeft);
