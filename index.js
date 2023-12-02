@@ -271,3 +271,10 @@ function generateInfoAboutMovie(year, description) {
 
   `;
 }
+
+
+function updateImageTransform() {
+  // Calculate the transform value based on the counting variable
+  const transformValue = `translateX(${-counting * 100}%)`;
+  carouselImage.style.transform = transformValue;
+}
