@@ -177,7 +177,11 @@ ul {
   border: 1px black solid;
   border-radius: 10px;
   overflow: hidden;
+  transition: transform 0.5s ease-in-out; /* Adjust the duration and timing function as needed */
 }
+
+
+
 
 .movie {
   display: flex;
@@ -254,6 +258,8 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
+
+
 
 .fa-chevron-right {
   padding-left: 20px;
