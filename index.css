@@ -445,10 +445,15 @@ nav {
 
 
 .user-account {
+display: flex;
   height: 200px;
-  width: 200px;
+  width: 300px;
   border: red solid 1px;
   position: absolute;
   right: 0px;
   top: 0px;
+}
+
+.user-account > *  {
+  gap: 0px;
 }
