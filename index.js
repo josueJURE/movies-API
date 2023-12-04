@@ -56,10 +56,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       return uniqueValues;
     }
 
-    const directorsNameListNoDuplicates = getUniqueValuesFromArray(
-      response,
-      "director"
-    );
+  
 
     const genreListWithNoDuplicates = getUniqueValuesFromArray(
       response,
