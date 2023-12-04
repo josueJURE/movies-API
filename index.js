@@ -37,10 +37,10 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       ".userWatchlistParentElement"
     );
   
-  
+    const directors = document.querySelector(".directors");
     const topTen = document.querySelector(".topTen");
     const topTenParentElement = document.querySelector(".topTenParentElement");
-
+    const moviesBy = document.querySelector(".moviesBy");
 
     function getUniqueValuesFromArray(response, key) {
       const valuesWithDuplicates = [];
@@ -56,7 +56,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       return uniqueValues;
     }
 
-  
+   
 
     const genreListWithNoDuplicates = getUniqueValuesFromArray(
       response,
@@ -79,7 +79,16 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       const selectedGenre = e.target.value;
       let targetElement, filterKey;
 
-   
+      if (directors && moviesBy) {
+        targetElement = directors;
+        moviesBy.innerHTML = `movies by ${selectedGenre}`;
+        filterKey = "director";
+      } else if (typesOfgenre) {
+        targetElement = typesOfgenre;
+        filterKey = "genre";
+      } else {
+        return;
+      }
 
       targetElement.innerHTML = "";
 
