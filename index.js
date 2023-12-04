@@ -19,6 +19,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       carousel.replaceChildren(carouselImage);
     }
     const title = document.querySelector(".title");
+    const main = document.querySelector("main");
+    console.log(main)
     const director = document.querySelector(".director");
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
@@ -34,7 +36,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const userWatchlistParentElement = document.querySelector(
       ".userWatchlistParentElement"
     );
-    const pickAdirector = document.querySelector(".pickAdirector");
+  
     const directors = document.querySelector(".directors");
     const topTen = document.querySelector(".topTen");
     const topTenParentElement = document.querySelector(".topTenParentElement");
@@ -129,10 +131,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       populateOptionsFromArray(genreListWithNoDuplicates, selectByGenres);
     }
 
-    if (pickAdirector) {
-      pickAdirector.addEventListener("change", userMakesAselection);
-      populateOptionsFromArray(directorsNameListNoDuplicates, pickAdirector);
-    }
+   
 
     if (home) {
       home.addEventListener("click", function () {
@@ -170,6 +169,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       }
       console.log(counting);
       populateFields();
+
     }
 
     function swipeRight() {
@@ -178,17 +178,43 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
         counting = 0;
       }
       populateFields();
+    
     }
+
+    // function populateFields() {
+    //   if (director) {
+    //     carouselImage.src = response[counting].image;
+    //     genre.innerHTML = `Genre: ${response[counting].genre.join(', ') }`;
+    //     rating.innerHTML = `Rating ${response[counting].rating}`;
+    //     title.innerHTML = response[counting].title;
+    //     description.innerHTML = response[counting].description;
+    //   }
+    // }
 
     function populateFields() {
       if (director) {
-        carouselImage.src = response[counting].image;
-        genre.innerHTML = `Genre: ${response[counting].genre.join(', ') }`;
-        rating.innerHTML = `Rating ${response[counting].rating}`;
-        title.innerHTML = response[counting].title;
-        description.innerHTML = response[counting].description;
+        const direction = counting > 0 ? 'translateX(-100%)' : 'translateX(100%)';
+        
+        carouselImage.style.transform = direction;
+        
+        setTimeout(() => {
+          carouselImage.src = response[counting].image;
+          genre.innerHTML = `Genre: ${response[counting].genre.join(', ')}`;
+          rating.innerHTML = `Rating ${response[counting].rating}`;
+          title.innerHTML = response[counting].title;
+          description.innerHTML = response[counting].description;
+    
+          // Reset transform after a short delay to allow the image to be updated first
+          setTimeout(() => {
+            carouselImage.style.transform = 'translateX(0)';
+            carouselImage.style.transition = "all 0.15 ease"
+            carousel.style.border = 0;
+            // main.style.display = 'none'
+          }, 100);
+        }, 100); // 500ms matches the transition duration
       }
     }
+    
 
  
     function getTasksFromLocalStorage() {
@@ -273,8 +299,8 @@ function generateInfoAboutMovie(year, description) {
 }
 
 
-function updateImageTransform() {
-  // Calculate the transform value based on the counting variable
-  const transformValue = `translateX(${-counting * 100}%)`;
-  carouselImage.style.transform = transformValue;
-}
+// function updateImageTransform() {
+//   // Calculate the transform value based on the counting variable
+//   const transformValue = `translateX(${-counting * 100}%)`;
+//   carouselImage.style.transform = transformValue;
+// }

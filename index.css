@@ -1,36 +1,38 @@
+:root {
+  --primary-color: #171b26;
+  --secondary-color: black;
+  --tertiary-color: #fff;
+  --fable-typography-label-600-font-weight: 500;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: 'Caveat', cursive;
-font-family: 'Onest', sans-serif;
-/* font-family: 'Open Sans', sans-serif; */
-/* font-family: 'Quicksand', sans-serif; */
-/* font-family: 'Roboto', sans-serif; */
-/* font-family: 'Rowdies', sans-serif; */
+  font-family: "Caveat", cursive;
+  font-family: "Onest", sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Quicksand', sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* font-family: 'Rowdies', sans-serif; */
 
- 
-  /* background-color: aliceblue; */
+  font-family: Amazon Ember, Amazon Arabic Ember, Arial, sans-serif !important;
+  font-size: var(--fable-typography-label-600-fontsize);
+  font-weight: var(--fable-typography-label-600-font-weight);
 }
 
 
-
-:root {
-  --primary-color:#171b26;
-  --secondary-color: black;
-  --tertiary-color: #fff;
-}
 
 body {
-
   background-color: var(--primary-color);
   height: 100vh;
 }
 
 .prev,
 .next {
- 
   padding: 15px;
   color: white;
   font-weight: bold;
@@ -59,7 +61,6 @@ body {
     text-align: center;
   }
 }
-
 
 @media (max-width: 600px) {
   nav {
@@ -112,7 +113,6 @@ ul {
     gap: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-
   }
   .imageContainer {
     padding-top: 10px;
@@ -179,9 +179,6 @@ ul {
   overflow: hidden;
   transition: transform 0.5s ease-in-out; /* Adjust the duration and timing function as needed */
 }
-
-
-
 
 .movie {
   display: flex;
@@ -258,8 +255,6 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
-
-
 
 .fa-chevron-right {
   padding-left: 20px;
@@ -342,7 +337,6 @@ img:hover {
   .moviesBy {
     display: none;
   }
- 
 }
 
 .filmInfo {
@@ -363,8 +357,7 @@ img:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  .carousel
-  .description,
+  .carousel .description,
   .filmInfo {
     flex-direction: column;
     flex-grow: 2;
@@ -417,13 +410,9 @@ option {
   .filmInfo {
     text-align: center;
   }
-
 }
 
-
-
 /* responsiveness ends*/
-
 
 /* Element begins */
 
@@ -436,9 +425,7 @@ footer {
   align-items: center;
   color: var(--tertiary-color);
   background-color: var(--secondary-color);
-
 }
-
 
 nav {
   position: relative;
@@ -452,6 +439,5 @@ nav {
   background-color: black;
   color: #fff;
 }
-
 
 /* Element ends */
