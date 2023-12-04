@@ -37,7 +37,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       ".userWatchlistParentElement"
     );
   
-    const directors = document.querySelector(".directors");
+  
     const topTen = document.querySelector(".topTen");
     const topTenParentElement = document.querySelector(".topTenParentElement");
     const moviesBy = document.querySelector(".moviesBy");
