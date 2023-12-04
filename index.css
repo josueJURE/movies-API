@@ -43,7 +43,7 @@ body {
 }
 
 .mainContainer {
-  position: relative;
+ 
   height: 100%;
   color: #fff;
   display: flex;
@@ -80,6 +80,7 @@ main {
   flex-direction: column;
   flex: 1;
   padding: 20px;
+  position: relative;
 }
 
 .imageContainer {
@@ -430,7 +431,7 @@ footer {
 nav {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: relative;
   width: 100%;
   height: fit-content;
@@ -447,5 +448,7 @@ nav {
   height: 200px;
   width: 200px;
   border: red solid 1px;
-  
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
