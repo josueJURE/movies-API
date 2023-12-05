@@ -90,13 +90,13 @@ main {
   justify-content: start;
 }
 
-ul {
+.homeSearchWatcList {
   display: flex;
   justify-content: space-around;
   width: 100%;
   list-style-type: none;
   gap: 50px;
-  /* position: relative; */
+  
 }
 
 .userInfo {
