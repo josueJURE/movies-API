@@ -450,10 +450,19 @@ nav {
   justify-content: space-around;
   height: 200px;
   width: 300px;
-  border: red solid 1px;
+  border: var(--tertiary-color) solid 3px;
+  border-top: none;
   position: absolute;
   right: 0px;
   top: 0px;
+}
+
+.user-account > * {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+
 }
 
 
