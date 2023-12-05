@@ -445,7 +445,7 @@ nav {
 
 /* Element ends */
 
-
+/* index.html start */
 .user-account {
   display: flex;
   justify-content: space-around;
@@ -456,6 +456,7 @@ nav {
   position: absolute;
   right: 0px;
   top: 0px;
+  display: none;
 }
 
 .user-account > * {
@@ -463,7 +464,13 @@ nav {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+}
+
+.user-name:hover {
+  
 
 }
+
+/* index.html end */
 
 
