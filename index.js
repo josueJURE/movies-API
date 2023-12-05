@@ -16,6 +16,7 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     const carousel = document.querySelector(".carousel");
     const carouselImage = document.createElement("img");
     const userName = document.querySelector(".user-name");
+    const userAccount = document.querySelector(".user-account");
     if (carousel) {
       carousel.replaceChildren(carouselImage);
     }
@@ -58,8 +59,23 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
 
     userName.addEventListener("mouseenter", () => {
-      console.log("josué")
+      userAccount.style.visibility = "visible"
+      
     })
+
+    userName.addEventListener("mouseleave", () => {
+      userAccount.style.visibility = "hidden"
+      
+    })
+
+    userAccount.addEventListener("mouseenter", (e) => {
+      e.target.style.visibility = "visible"
+    })
+
+    userAccount.addEventListener("mouseleave", (e) => {
+      e.target.style.visibility = "hidden"
+    })
+
 
    
 

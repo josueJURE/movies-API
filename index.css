@@ -456,7 +456,8 @@ nav {
   position: absolute;
   right: 0px;
   top: 0px;
-  display: none;
+  visibility: hidden;
+
 }
 
 .user-account > * {
@@ -466,10 +467,8 @@ nav {
   row-gap: 30px;
 }
 
-.user-name:hover {
-  
 
-}
+
 
 /* index.html end */
 
