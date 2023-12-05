@@ -446,7 +446,8 @@ nav {
 
 
 .user-account {
-display: flex;
+  display: flex;
+  justify-content: space-around;
   height: 200px;
   width: 300px;
   border: red solid 1px;
@@ -455,6 +456,4 @@ display: flex;
   top: 0px;
 }
 
-.user-account > *  {
-  gap: 0px;
-}
+
