@@ -58,23 +58,28 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       return uniqueValues;
     }
 
-    userName.addEventListener("mouseenter", () => {
-      userAccount.style.visibility = "visible"
-      
-    })
+    if(userAccount) {
+      userName.addEventListener("mouseenter", () => {
+        userAccount.style.visibility = "visible"
+       
+      })
 
-    userName.addEventListener("mouseleave", () => {
-      userAccount.style.visibility = "hidden"
-      
-    })
+      userName.addEventListener("mouseleave", () => {
+        userAccount.style.visibility = "hidden";
+      })
 
-    userAccount.addEventListener("mouseenter", (e) => {
-      e.target.style.visibility = "visible"
-    })
+      userAccount.addEventListener("mouseenter", (e) => {
+        e.target.style.visibility = "visible"
+      })
+  
+      userAccount.addEventListener("mouseleave", (e) => {
+        e.target.style.visibility = "hidden"
+      })
+  
+    }
 
-    userAccount.addEventListener("mouseleave", (e) => {
-      e.target.style.visibility = "hidden"
-    })
+
+ 
 
 
    
