@@ -346,6 +346,7 @@ img:hover {
   flex-direction: column;
   margin-top: auto;
   margin-bottom: auto;
+  align-items: center;
 }
 
 .textColor {
