@@ -49,13 +49,13 @@ body {
 /*  media query section starts*/
 
 @media only screen and (max-width: 600px) {
-  .homeSearchWatcList {
+  /* .homeSearchWatcList {
     display: grid;
     justify-content: center;
     gap: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-  }
+  } */
   .imageContainer {
     padding-top: 10px;
   }
@@ -71,11 +71,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .trailerButton {
-    text-align: center;
-  }
-}
+
 
 @media (max-width: 600px) {
   nav {
@@ -87,6 +83,7 @@ body {
     height: 30px;
     border: none;
     color: #fff;
+    display: none;
   }
 }
 
