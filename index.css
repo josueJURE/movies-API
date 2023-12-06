@@ -462,4 +462,8 @@ nav {
   align-items: center;
 }
 
-
+.landingPage {
+  width: 80%;
+  transition: width 2s;
+  transform: translate(100px);
+}
