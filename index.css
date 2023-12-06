@@ -5,8 +5,6 @@
   --fable-typography-label-600-font-weight: 500;
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +23,6 @@
   font-weight: var(--fable-typography-label-600-font-weight);
 }
 
-
-
 body {
   background-color: var(--primary-color);
   height: 100vh;
@@ -44,7 +40,6 @@ body {
 }
 
 .mainContainer {
- 
   height: 100%;
   color: #fff;
   display: flex;
@@ -118,7 +113,6 @@ main {
   width: 100%;
   list-style-type: none;
   gap: 50px;
-  
 }
 
 .userInfo {
@@ -128,10 +122,6 @@ main {
   margin-left: auto;
   margin-top: 0;
 }
-
-
-
-
 
 .homeSearchWatcList li {
   position: relative;
@@ -299,8 +289,6 @@ img:hover {
   justify-content: center;
 }
 
-
-
 .description {
   text-align: justify;
 }
@@ -335,8 +323,6 @@ img:hover {
   color: white;
 }
 
-
-
 .filmInfo {
   display: flex;
   flex-direction: column;
@@ -354,8 +340,6 @@ img:hover {
   margin-top: auto;
   margin-bottom: auto;
 }
-
-
 
 .fa-heart {
   height: 100px;
@@ -401,11 +385,13 @@ option {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .moviesBy {
-    display: none;
+/* @media only screen and (max-width: 600px) {
+  .homeSearchWatcList {
+    flex-direction: column;
   }
-}
+} */
+
+
 
 @media only screen and (max-width: 600px) {
   .carousel .description,
@@ -425,18 +411,13 @@ option {
   }
 }
 
-
-@media (max-width: 1010px) {
+@media (max-width: 705px) {
   nav {
     display: none;
   }
 }
 
 /* responsiveness ends*/
-
-
-
-
 
 /* Element begins */
 
@@ -480,9 +461,6 @@ nav {
   visibility: hidden;
 }
 
-
-
-
 .user-account > * {
   padding-top: 10px;
   display: flex;
@@ -490,9 +468,4 @@ nav {
   row-gap: 30px;
 }
 
-
-
-
 /* index.html end */
-
-
