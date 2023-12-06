@@ -364,13 +364,6 @@ option {
 }
 
 @media only screen and (max-width: 600px) {
-  /* .homeSearchWatcList {
-    display: grid;
-    justify-content: center;
-    gap: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  } */
   .imageContainer {
     padding-top: 10px;
   }
@@ -458,3 +451,10 @@ nav {
 }
 
 /* index.html end */
+
+.slide {
+  position: absolute;
+  height: 94%;
+  border: 1px solid var(--tertiary-color);
+  width: 10%;
+}
