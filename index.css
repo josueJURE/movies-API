@@ -411,11 +411,7 @@ option {
   }
 }
 
-@media (max-width: 705px) {
-  nav {
-    display: none;
-  }
-}
+
 
 /* responsiveness ends*/
 
