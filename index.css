@@ -456,5 +456,10 @@ nav {
   position: absolute;
   height: 94%;
   border: 1px solid var(--tertiary-color);
-  width: 10%;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
 }
