@@ -51,6 +51,25 @@ body {
   flex-direction: column;
 }
 
+/*  media query section starts*/
+
+@media only screen and (max-width: 600px) {
+  .homeSearchWatcList {
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .imageContainer {
+    padding-top: 10px;
+  }
+  main {
+    margin-top: 0px;
+    padding-top: 10px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .mainContainer {
     align-content: space-between;
@@ -75,6 +94,8 @@ body {
     color: #fff;
   }
 }
+
+/*  media query section ends */
 
 main {
   display: flex;
@@ -103,31 +124,14 @@ main {
 .userInfo {
   position: absolute;
   height: 100px;
-  border: 1px solid black;
+  border: 1px solid;
   margin-left: auto;
   margin-top: 0;
 }
 
-@media only screen and (max-width: 600px) {
-  .homeSearchWatcList {
-    display: grid;
-    justify-content: center;
-    gap: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .imageContainer {
-    padding-top: 10px;
-  }
-  main {
-    margin-top: 0px;
-    padding-top: 10px;
-  }
-}
 
-/* @media only screen and (max-width: 600px) {
 
-} */
+
 
 .homeSearchWatcList li {
   position: relative;
@@ -295,11 +299,7 @@ img:hover {
   justify-content: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .title {
-    text-align: center;
-  }
-}
+
 
 .description {
   text-align: justify;
@@ -335,11 +335,7 @@ img:hover {
   color: white;
 }
 
-@media only screen and (max-width: 600px) {
-  .moviesBy {
-    display: none;
-  }
-}
+
 
 .filmInfo {
   display: flex;
@@ -359,13 +355,7 @@ img:hover {
   margin-bottom: auto;
 }
 
-@media only screen and (max-width: 600px) {
-  .carousel .description,
-  .filmInfo {
-    flex-direction: column;
-    flex-grow: 2;
-  }
-}
+
 
 .fa-heart {
   height: 100px;
@@ -405,6 +395,26 @@ option {
 
 /* responsiveness begins*/
 
+@media only screen and (max-width: 600px) {
+  .title {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .moviesBy {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel .description,
+  .filmInfo {
+    flex-direction: column;
+    flex-grow: 2;
+  }
+}
+
 @media (max-width: 900px) {
   .movie {
     flex-direction: column;
@@ -415,7 +425,18 @@ option {
   }
 }
 
+
+@media (max-width: 1010px) {
+  nav {
+    display: none;
+  }
+}
+
 /* responsiveness ends*/
+
+
+
+
 
 /* Element begins */
 
@@ -457,8 +478,10 @@ nav {
   right: 0px;
   top: 0px;
   visibility: hidden;
-
 }
+
+
+
 
 .user-account > * {
   padding-top: 10px;
