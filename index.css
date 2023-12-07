@@ -453,17 +453,19 @@ nav {
 /* index.html end */
 
 .slide {
-  position: absolute;
-  height: 94%;
-  border: 1px solid var(--tertiary-color);
-  width: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 20%;
+ 
 }
 
 .landingPage {
-  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 94%;
+  border: 3px solid var(--tertiary-color);
+  /* width: 5%; */
   transition: width 2s;
-  transform: translate(100px);
+  z-index: 100;
 }

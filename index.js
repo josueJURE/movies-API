@@ -22,7 +22,9 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
     }
     const title = document.querySelector(".title");
     const main = document.querySelector("main");
-    console.log(main)
+    const button = document.querySelector('button');
+    const landingPage = document.querySelector(".landingPage")
+    console.log(landingPage)
     const director = document.querySelector(".director");
     const genre = document.querySelector(".genre");
     const rating = document.querySelector(".rating");
@@ -77,6 +79,11 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
       })
   
     }
+
+
+    button.addEventListener("click", () => {
+      console.log("josue")
+    })
 
 
  
@@ -315,9 +322,10 @@ function generateInfoAboutMovie(year, description) {
   <i class="fa-regular fa-heart"></i>
   </div>
 
-
   `;
 }
+
+
 
 
 // function updateImageTransform() {
