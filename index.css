@@ -452,10 +452,12 @@ nav {
 
 /* index.html end */
 
-.slide {
+.landingPage.slide {
   width: 20%;
- 
 }
+
+
+
 
 .landingPage {
   height: 80%;
@@ -465,7 +467,8 @@ nav {
   position: absolute;
   height: 94%;
   border: 3px solid var(--tertiary-color);
-  /* width: 5%; */
-  transition: width 2s;
+  width: 5%;
+  border: 1px red solid;
   z-index: 100;
+  transition: width 2s;
 }

@@ -82,6 +82,8 @@ fetch("https://imdb-top-100-movies.p.rapidapi.com/", options)
 
 
     button.addEventListener("click", () => {
+  
+      landingPage.classList.toggle("slide")
       console.log("josue")
     })
 
