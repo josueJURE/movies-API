@@ -453,7 +453,9 @@ nav {
 /* index.html end */
 
 .landingPage.slide {
-  width: 20%;
+
+  transform: translateX(0px);
+  transition: transform 2s;
 }
 
 
@@ -462,13 +464,15 @@ nav {
 .landingPage {
   height: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   position: absolute;
   height: 94%;
   border: 3px solid var(--tertiary-color);
-  width: 5%;
+  width: 30%;
   border: 1px red solid;
   z-index: 100;
-  transition: width 2s;
+  background-color: var(--tertiary-color);
+  transform: translateX(-200px);
+
 }
