@@ -46,12 +46,24 @@ body {
   flex-direction: column;
 }
 
+.homePageMainContainer {
+  height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
 main {
   display: flex;
   flex-direction: column;
   flex: 1;
   padding: 20px;
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .imageContainer {
