@@ -425,6 +425,23 @@ nav {
   nav {
     display: none;
   }
+  .landingPage {
+    height: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    height: 94%;
+    border-right: 3px solid;
+    width: 30%;
+    z-index: 100;
+    background-color: black;
+    transform: translateX(-200px);
+    transition: transform 2s;
+  
+  }
+
+  
 }
 
 /* Element ends */
@@ -452,6 +469,7 @@ nav {
 
 /* index.html end */
 
+
 .landingPage.slide {
 
   transform: translateX(0px);
@@ -461,18 +479,5 @@ nav {
 
 
 
-.landingPage {
-  height: 80%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: absolute;
-  height: 94%;
-  border-right: 3px solid;
-  width: 30%;
-  z-index: 100;
-  background-color: black;
-  transform: translateX(-200px);
-  transition: transform 2s;
 
-}
+
